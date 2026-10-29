@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark" data-textsize="m">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cahier des charges — Construire ses fiches de séance · Médiateur Numérique</title>
+<meta name="description" content="Cahier des charges pas à pas pour construire, en autonomie et à partir d'une page vierge, les trois fiches de séance du titre professionnel Médiateur Numérique (RNCP 40695).">
+<meta name="color-scheme" content="dark light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- Favicon principal -->
+<link rel="icon" type="image/png" sizes="32x32" href="img/sceau-cahier-des-charges.png">
+
+<style>
+  :root,[data-theme="dark"]{
+    --bg:#0B0E13;--panel:#12161F;--panel-2:#171C27;--line:#2A3140;
+    --ink:#ECEAE2;--muted:#AEB6C2;--dim:#828C9A;
+    --accent-text:#F2CE6B;--accent-deco:#F2CE6B;--accent-edge:#8A6B24;
+    --danger:#F0A98C;--danger-bg:rgba(232,140,107,0.10);--danger-line:rgba(232,140,107,0.38);
+    --ok:#9BDBB4;--ok-bg:rgba(139,209,166,0.09);--ok-line:rgba(139,209,166,0.34);
+    --info-bg:rgba(242,206,107,0.08);--info-line:rgba(242,206,107,0.34);
+    --shadow:0 1px 0 rgba(255,255,255,0.02);
+    --glow-1:rgba(242,206,107,0.10);--glow-2:rgba(242,206,107,0.05);
+    --node:#1B1710;--pill-ink:#0B0E13;--tablehead:#171C27;
+  }
+  [data-theme="light"]{
+    --bg:#F5F1E8;--panel:#FFFDF7;--panel-2:#FBF7EC;--line:#DDD3BF;
+    --ink:#1A1D24;--muted:#3E434D;--dim:#5A606B;
+    --accent-text:#5B4611;--accent-deco:#82641C;--accent-edge:#B79436;
+    --danger:#9A3410;--danger-bg:rgba(154,52,16,0.07);--danger-line:rgba(154,52,16,0.30);
+    --ok:#1F6B41;--ok-bg:rgba(31,107,65,0.07);--ok-line:rgba(31,107,65,0.28);
+    --info-bg:rgba(130,100,28,0.08);--info-line:rgba(130,100,28,0.30);
+    --shadow:0 1px 2px rgba(24,20,10,0.06);
+    --glow-1:rgba(183,148,54,0.14);--glow-2:rgba(183,148,54,0.07);
+    --node:#FBF3DE;--pill-ink:#FFFDF7;--tablehead:#F1EAD8;
+  }
+  :root[data-textsize="m"]{--fs:19px;}
+  :root[data-textsize="l"]{--fs:22px;}
+  :root[data-textsize="xl"]{--fs:25px;}
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:var(--fs);line-height:1.75;
+    -webkit-font-smoothing:antialiased;transition:background .25s,color .25s;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(900px 520px at 82% -8%,var(--glow-1),transparent 60%),
+      radial-gradient(700px 500px at -10% 12%,var(--glow-2),transparent 60%);}
+  main,header,footer,.controlbar{position:relative;z-index:1;}
+  a{color:var(--accent-text);}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+  .skip{position:absolute;left:-999px;top:0;background:var(--accent-deco);color:var(--pill-ink);
+    padding:10px 16px;border-radius:0 0 8px 0;font-weight:700;z-index:50;}
+  .skip:focus{left:0;}
+
+  /* control bar */
+  .controlbar{position:sticky;top:0;z-index:40;
+    background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);}
+  .controlbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:12px 24px;flex-wrap:wrap;}
+  .brand{font-family:"JetBrains Mono",monospace;font-size:0.74rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--accent-text);}
+  .ctrls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .ctrl-group{display:flex;align-items:center;gap:2px;border:1px solid var(--line);
+    border-radius:999px;padding:3px;background:var(--panel);}
+  .ctrl-group .lbl{font-family:"JetBrains Mono",monospace;font-size:0.62rem;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--dim);padding:0 8px 0 10px;}
+  button.ctrl{font-family:"Atkinson Hyperlegible",sans-serif;background:transparent;color:var(--muted);
+    border:none;cursor:pointer;border-radius:999px;padding:6px 12px;font-size:0.9rem;line-height:1;
+    display:inline-flex;align-items:center;gap:7px;transition:background .15s,color .15s;}
+  button.ctrl:hover{color:var(--ink);}
+  button.ctrl[aria-pressed="true"]{background:var(--accent-deco);color:var(--pill-ink);font-weight:700;}
+  button.ctrl .ico{width:16px;height:16px;}
+  .size-btn{font-weight:700;min-width:34px;justify-content:center;}
+  .size-btn.s1{font-size:0.8rem;}.size-btn.s2{font-size:0.95rem;}.size-btn.s3{font-size:1.12rem;}
+
+  /* hero */
+  .hero{padding:58px 0 36px;}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:0.76rem;letter-spacing:0.2em;
+    text-transform:uppercase;color:var(--accent-text);display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--accent-edge);}
+  h1{font-family:"Playfair Display",Georgia,serif;font-weight:900;font-size:clamp(2.2rem,5.6vw,3.9rem);
+    line-height:1.05;letter-spacing:-0.01em;margin:22px 0 18px;}
+  h1 .accent{color:var(--accent-text);font-style:italic;font-weight:700;}
+  .lede{font-size:clamp(1.02rem,2.1vw,1.24rem);color:var(--muted);max-width:62ch;margin:0;}
+
+  /* signature */
+  .keystone{margin:44px 0 6px;background:linear-gradient(180deg,var(--panel),var(--bg));
+    border:1px solid var(--line);border-radius:18px;padding:30px 28px 26px;box-shadow:var(--shadow);}
+  .keystone figcaption{font-family:"JetBrains Mono",monospace;font-size:0.72rem;letter-spacing:0.16em;
+    text-transform:uppercase;color:var(--dim);margin-bottom:16px;text-align:center;}
+  .alignsvg{width:100%;height:auto;display:block;max-width:600px;margin:0 auto;overflow:visible;}
+  .alignsvg .node{fill:var(--node);stroke:var(--accent-deco);stroke-width:2;}
+  .alignsvg .arrow{fill:none;stroke:var(--accent-edge);stroke-width:2.2;}
+  .alignsvg .arrowhead{fill:var(--accent-edge);}
+  .alignsvg .nlabel{font-family:"Playfair Display",serif;fill:var(--accent-text);font-size:16px;font-weight:700;}
+  .alignsvg .nsub{font-family:"Atkinson Hyperlegible",sans-serif;fill:var(--muted);font-size:11.5px;}
+  .alignsvg .center{font-family:"JetBrains Mono",monospace;fill:var(--dim);font-size:11px;letter-spacing:0.12em;}
+  .keystone .verdict{text-align:center;margin:18px auto 0;max-width:54ch;font-size:1.02rem;}
+  .keystone .verdict strong{color:var(--accent-text);}
+
+  section{padding:50px 0;border-top:1px solid var(--line);}
+  .kicker{font-family:"JetBrains Mono",monospace;font-size:0.76rem;letter-spacing:0.2em;
+    text-transform:uppercase;color:var(--accent-text);margin:0 0 10px;}
+  h2{font-family:"Playfair Display",serif;font-weight:700;font-size:clamp(1.65rem,3.8vw,2.4rem);
+    line-height:1.14;margin:0 0 18px;}
+  h2 em{color:var(--accent-text);font-style:italic;}
+  .section-lead{color:var(--muted);max-width:66ch;margin:0 0 26px;}
+
+  /* deliverable note grid */
+  .note-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .note{border-radius:14px;padding:20px 22px;border:1px solid var(--line);background:var(--panel);box-shadow:var(--shadow);}
+  .note h3{margin:0 0 6px;font-size:1.02rem;font-weight:700;display:flex;gap:9px;align-items:center;}
+  .note p{margin:0;color:var(--muted);font-size:0.95rem;}
+  .note.info{background:var(--info-bg);border-color:var(--info-line);}
+  .note .ni{width:20px;height:20px;flex:0 0 auto;}
+
+  /* golden rules grid */
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .rule{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px;box-shadow:var(--shadow);}
+  .rule .rn{font-family:"JetBrains Mono",monospace;font-size:0.72rem;color:var(--accent-text);letter-spacing:0.1em;}
+  .rule h3{margin:6px 0 6px;font-size:1.02rem;font-weight:700;line-height:1.3;}
+  .rule p{margin:0;color:var(--muted);font-size:0.93rem;}
+
+  /* steps (rubriques) */
+  .steps{list-style:none;counter-reset:step;margin:0;padding:0;}
+  .steps>li{position:relative;padding:0 0 26px 66px;margin:0 0 0 22px;border-left:2px solid var(--line);}
+  .steps>li:last-child{border-left-color:transparent;padding-bottom:2px;}
+  .steps>li::before{counter-increment:step;content:counter(step);position:absolute;left:-23px;top:-4px;
+    width:46px;height:46px;border-radius:50%;background:var(--panel-2);border:2px solid var(--accent-edge);
+    color:var(--accent-text);font-family:"JetBrains Mono",monospace;font-weight:600;font-size:1.05rem;
+    display:flex;align-items:center;justify-content:center;}
+  .steps>li.identif::before{content:"0";}
+  .steps h3{font-family:"Atkinson Hyperlegible",sans-serif;font-weight:700;font-size:1.14rem;margin:0 0 6px;}
+  .steps p{margin:0 0 8px;color:var(--muted);font-size:0.97rem;}
+  .crit{font-size:0.92rem;color:var(--ink);background:var(--panel);border:1px solid var(--line);
+    border-left:3px solid var(--accent-edge);border-radius:0 10px 10px 0;padding:10px 14px;margin:8px 0 0;}
+  .crit b{color:var(--accent-text);}
+  .ex-inline{font-family:"JetBrains Mono",monospace;font-size:0.82rem;color:var(--muted);
+    background:var(--panel-2);border:1px dashed var(--accent-edge);border-radius:8px;
+    padding:8px 12px;display:block;margin-top:8px;line-height:1.7;}
+
+  /* example table (déroulé) */
+  .tbl-wrap{overflow-x:auto;margin-top:10px;border:1px solid var(--line);border-radius:12px;}
+  table.derou{border-collapse:collapse;width:100%;min-width:560px;font-size:0.9rem;}
+  table.derou th,table.derou td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.derou thead th{background:var(--tablehead);color:var(--accent-text);
+    font-family:"JetBrains Mono",monospace;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;}
+  table.derou td.dur{font-family:"JetBrains Mono",monospace;color:var(--muted);white-space:nowrap;}
+  table.derou tr:last-child td{border-bottom:none;}
+  table.derou .who{color:var(--accent-text);font-weight:700;}
+
+  /* callouts */
+  .callout{margin-top:12px;border-radius:12px;padding:15px 18px;font-size:0.95rem;
+    display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);}
+  .callout.warn{background:var(--danger-bg);border-color:var(--danger-line);color:var(--danger);}
+  .callout.good{background:var(--ok-bg);border-color:var(--ok-line);color:var(--ok);}
+  .callout b{color:inherit;}
+  .callout .cico{flex:0 0 auto;width:20px;height:20px;margin-top:2px;}
+
+  /* brief cards */
+  .briefs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .brief{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 22px;box-shadow:var(--shadow);}
+  .brief .bt{font-family:"JetBrains Mono",monospace;font-size:0.68rem;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--accent-text);}
+  .brief h3{font-family:"Playfair Display",serif;font-weight:700;font-size:1.2rem;margin:6px 0 10px;line-height:1.2;}
+  .brief dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:0.9rem;}
+  .brief dt{color:var(--dim);font-family:"JetBrains Mono",monospace;font-size:0.72rem;
+    text-transform:uppercase;letter-spacing:0.06em;padding-top:2px;}
+  .brief dd{margin:0;color:var(--muted);}
+
+  /* checklist */
+  .check{background:linear-gradient(180deg,var(--panel),var(--bg));border:1px solid var(--accent-edge);
+    border-radius:16px;padding:26px 28px;box-shadow:var(--shadow);}
+  .check .ct{font-family:"JetBrains Mono",monospace;font-size:0.72rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--accent-text);margin-bottom:14px;}
+  .check ul{list-style:none;margin:0;padding:0;display:grid;gap:11px;}
+  .check li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;font-size:0.97rem;}
+  .check li .box{width:22px;height:22px;border:2px solid var(--accent-edge);border-radius:6px;flex:0 0 auto;margin-top:2px;}
+
+  /* pitfalls */
+  .pitfalls{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .pitfall{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 22px;box-shadow:var(--shadow);}
+  .pitfall h3{margin:0 0 6px;font-weight:700;font-size:1rem;color:var(--danger);}
+  .pitfall p{margin:0;color:var(--muted);font-size:0.93rem;}
+
+  .recap{background:linear-gradient(180deg,var(--panel),var(--bg));border:1px solid var(--accent-edge);
+    border-radius:16px;padding:28px 28px;box-shadow:var(--shadow);}
+  .recap ol{margin:0;padding-left:22px;}
+  .recap li{margin:0 0 10px;}.recap li:last-child{margin-bottom:0;}
+  .recap b{color:var(--accent-text);}
+
+  footer{border-top:1px solid var(--line);padding:32px 0 46px;}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-family:"JetBrains Mono",monospace;font-size:0.74rem;letter-spacing:0.1em;color:var(--dim);}
+  footer .brandf{color:var(--accent-text);}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media (max-width:820px){ .rules,.briefs{grid-template-columns:1fr 1fr;} }
+  @media (max-width:640px){
+    .rules,.briefs,.pitfalls,.note-grid{grid-template-columns:1fr;}
+    .steps>li{padding-left:56px;}
+    .controlbar .wrap{gap:10px;}.brand{width:100%;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}.reveal{opacity:1;transform:none;transition:none;}
+    body,button.ctrl{transition:none;}
+  }
+  :focus-visible{outline:3px solid var(--accent-text);outline-offset:3px;border-radius:5px;}
+
+  /* Styles pour la checklist cochable */
+.check ul li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--accent-edge);
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  margin-top: 2px;
+}
+
+.checkbox-input:checked + .checkbox-custom {
+  background-color: var(--accent-deco);
+}
+
+.checkbox-input:checked + .checkbox-custom::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--pill-ink);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Bouton retour en haut */
+.scroll-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--accent-deco);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.scroll-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--pill-ink);
+}
+
+/* Barre de défilement personnalisée */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 180px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-deco);
+  border-radius: 6px;
+  border: 2px solid var(--panel);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-edge);
+}
+
+/* Effet de zoom au survol pour le sceau dans le hero */
+.cdc-seal {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.cdc-seal:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 8px 24px rgba(242, 206, 107, 0.35));
+}
+
+.cdc-seal svg {
+  transition: transform 0.3s ease;
+}
+
+/* Animation pour le survol du sceau */
+@keyframes pulse-glow {
+  0% { filter: drop-shadow(0 6px 18px rgba(242, 206, 107, 0.28)); }
+  100% { filter: drop-shadow(0 8px 24px rgba(242, 206, 107, 0.45)); }
+}
+
+.cdc-seal:hover svg {
+  animation: pulse-glow 0.5s ease;
+}
+
+
+</style>
+</head>
+<body>
+<!-- ===== AJOUT : intro « waouh » à l'ouverture (placée juste après <body>) ===== -->
+<script>
+/* Applique tout de suite le thème et la taille mémorisés (évite un flash au chargement)
+   et active l'intro, sauf si l'utilisateur a demandé moins d'animations. */
+(function(){
+  var r=document.documentElement;
+  try{
+    var t=localStorage.getItem('cdc-theme');
+    if(t==='light'||t==='dark'){r.setAttribute('data-theme',t);}
+    else if(window.matchMedia('(prefers-color-scheme: light)').matches){r.setAttribute('data-theme','light');}
+    var s=localStorage.getItem('cdc-size');
+    if(s==='m'||s==='l'||s==='xl'){r.setAttribute('data-textsize',s);}
+  }catch(e){}
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('wow');}
+})();
+</script>
+<style>
+  /* Couleurs des effets, pour chaque thème */
+  :root,[data-theme="dark"]{
+    --wow-hi:#FFF3C8;--wow-glow:rgba(242,206,107,.35);--wow-ring:rgba(242,206,107,.14);
+    --wow-spot:rgba(242,206,107,.07);--wow-card-spot:rgba(242,206,107,.10);
+    --wow-card-sh:0 18px 40px rgba(0,0,0,.45),0 0 0 1px rgba(242,206,107,.18),0 0 30px rgba(242,206,107,.08);
+    --wow-num-hi:#3A3220;--wow-au1:rgba(242,206,107,.16);--wow-au2:rgba(138,107,36,.22);--wow-au3:rgba(72,96,150,.14);
+    --wow-intro-glow:rgba(242,206,107,.22);--wow-dust:242,206,107;
+  }
+  [data-theme="light"]{
+    --wow-hi:#C9A24B;--wow-glow:rgba(183,148,54,.35);--wow-ring:rgba(183,148,54,.16);
+    --wow-spot:rgba(183,148,54,.10);--wow-card-spot:rgba(183,148,54,.12);
+    --wow-card-sh:0 18px 40px rgba(91,70,17,.14),0 0 0 1px rgba(183,148,54,.3),0 0 28px rgba(183,148,54,.12);
+    --wow-num-hi:#F6E7BC;--wow-au1:rgba(242,206,107,.30);--wow-au2:rgba(183,148,54,.16);--wow-au3:rgba(255,226,170,.45);
+    --wow-intro-glow:rgba(183,148,54,.25);--wow-dust:150,115,30;
+  }
+
+  /* Rideau d'ouverture : n'existe que si l'intro est active */
+  .wow-intro{display:none}
+  html.wow .wow-intro{display:block;position:fixed;inset:0;z-index:9999;cursor:pointer;
+    animation:wow-intro-off 0s linear 2.75s forwards}
+  html.wow.wow-skip .wow-intro{display:none}
+  .wow-half{position:absolute;left:0;right:0;height:50.5%;background:var(--bg)}
+  .wow-half--top{top:0;background:radial-gradient(120% 90% at 50% 100%,var(--wow-intro-glow),transparent 60%),var(--bg);
+    animation:wow-open-up .85s cubic-bezier(.77,0,.18,1) 1.85s forwards}
+  .wow-half--bot{bottom:0;background:radial-gradient(120% 90% at 50% 0%,var(--wow-intro-glow),transparent 60%),var(--bg);
+    animation:wow-open-down .85s cubic-bezier(.77,0,.18,1) 1.85s forwards}
+  .wow-seam{position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;transform:scaleX(0);
+    background:linear-gradient(90deg,transparent,var(--accent-deco),var(--wow-hi),var(--accent-deco),transparent);
+    box-shadow:0 0 18px 2px var(--wow-glow);animation:wow-seam 1s cubic-bezier(.2,.8,.2,1) 1.5s forwards}
+  .wow-stage{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:14px;padding:24px;text-align:center;animation:wow-stage-out .45s ease 1.6s forwards}
+  .wow-emblem{position:relative;width:150px;height:150px;display:grid;place-items:center}
+  .wow-emblem::before{content:"";position:absolute;inset:-30%;border-radius:50%;
+    background:radial-gradient(closest-side,var(--wow-glow),transparent 72%);animation:wow-halo 1.6s ease-in-out .3s both}
+  .wow-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+  .wow-ring circle{fill:none;stroke-linecap:round}
+  .wow-ring .c1{stroke:var(--accent-deco);stroke-width:2.5;stroke-dasharray:654;stroke-dashoffset:654;animation:wow-dash 1.1s cubic-bezier(.6,0,.2,1) .1s forwards}
+  .wow-ring .c2{stroke:var(--accent-edge);stroke-width:1.2;stroke-dasharray:578;stroke-dashoffset:-578;animation:wow-dash 1.2s cubic-bezier(.6,0,.2,1) .25s forwards}
+  .wow-doc{position:relative;width:62px;height:auto;opacity:0;animation:wow-doc .7s cubic-bezier(.2,1.4,.3,1) .55s forwards}
+  .wow-kick{margin:0;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--accent-text);opacity:0;animation:wow-fade .6s ease .5s forwards}
+  .wow-title{margin:0;font-family:"Playfair Display",Georgia,serif;font-weight:900;font-size:clamp(30px,6vw,58px);
+    line-height:1.1;color:var(--ink);display:flex;flex-wrap:wrap;justify-content:center;perspective:600px}
+  .wow-title span{display:inline-block;opacity:0;transform:translateY(60%) rotateX(-70deg);transform-origin:50% 100%;
+    animation:wow-letter .7s cubic-bezier(.2,.8,.2,1) calc(.6s + var(--i) * .035s) forwards}
+  .wow-title .g{background:linear-gradient(100deg,var(--accent-text),var(--wow-hi),var(--accent-text));
+    -webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic}
+  .wow-line{display:block;width:min(320px,70vw);height:1px;transform:scaleX(0);
+    background:linear-gradient(90deg,transparent,var(--accent-deco),transparent);animation:wow-line .7s cubic-bezier(.2,.8,.2,1) 1.1s forwards}
+  .wow-sub{margin:0;font-size:15px;color:var(--muted);opacity:0;animation:wow-fade .5s ease 1.2s forwards}
+  .wow-skiphint{position:absolute;left:0;right:0;bottom:22px;margin:0;text-align:center;font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);opacity:0;animation:wow-fade .5s ease .9s forwards,wow-stage-out .3s ease 1.6s forwards}
+
+  @keyframes wow-intro-off{to{visibility:hidden;pointer-events:none}}
+  @keyframes wow-open-up{to{transform:translateY(-101%)}}
+  @keyframes wow-open-down{to{transform:translateY(101%)}}
+  @keyframes wow-seam{0%{transform:scaleX(0);opacity:1}40%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
+  @keyframes wow-stage-out{to{opacity:0;transform:scale(1.08);filter:blur(6px)}}
+  @keyframes wow-halo{0%{opacity:0;transform:scale(.4)}60%{opacity:1;transform:scale(1.1)}100%{opacity:.75;transform:scale(1)}}
+  @keyframes wow-dash{to{stroke-dashoffset:0}}
+  @keyframes wow-doc{from{opacity:0;transform:scale(.3) rotate(-25deg)}to{opacity:1;transform:none}}
+  @keyframes wow-fade{to{opacity:1}}
+  @keyframes wow-letter{to{opacity:1;transform:none}}
+  @keyframes wow-line{to{transform:scaleX(1)}}
+</style>
+<div class="wow-intro" id="wow-intro" aria-hidden="true">
+  <div class="wow-half wow-half--top"></div>
+  <div class="wow-half wow-half--bot"></div>
+  <div class="wow-stage">
+    <div class="wow-emblem">
+      <svg class="wow-ring" viewBox="0 0 220 220"><circle class="c1" cx="110" cy="110" r="104"/><circle class="c2" cx="110" cy="110" r="92"/></svg>
+      <svg class="wow-doc" viewBox="0 0 60 74" fill="none">
+        <rect x="3" y="3" width="54" height="68" rx="6" stroke="var(--accent-deco)" stroke-width="3"/>
+        <path d="M3 9a6 6 0 0 1 6-6h42a6 6 0 0 1 6 6v6H3z" fill="var(--accent-deco)"/>
+        <path d="M14 28h32M14 37h32M14 46h20" stroke="var(--accent-edge)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M17 58l6 6 14-15" stroke="var(--accent-deco)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <p class="wow-kick">MODE 83 · Médiateur Numérique</p>
+    <p class="wow-title"><span style="--i:0">C</span><span style="--i:1">a</span><span style="--i:2">h</span><span style="--i:3">i</span><span style="--i:4">e</span><span style="--i:5">r</span><span style="--i:6">&nbsp;</span><span class="g" style="--i:7">d</span><span class="g" style="--i:8">e</span><span class="g" style="--i:9">s</span><span class="g" style="--i:10">&nbsp;</span><span class="g" style="--i:11">c</span><span class="g" style="--i:12">h</span><span class="g" style="--i:13">a</span><span class="g" style="--i:14">r</span><span class="g" style="--i:15">g</span><span class="g" style="--i:16">e</span><span class="g" style="--i:17">s</span></p>
+    <span class="wow-line"></span>
+    <p class="wow-sub">Construire vos trois fiches de séance</p>
+  </div>
+  <span class="wow-seam"></span>
+  <p class="wow-skiphint">Cliquez pour passer</p>
+</div>
+<!-- ===== FIN AJOUT intro ===== -->
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<div class="controlbar">
+  <div class="wrap">
+    <span class="brand">MODE&nbsp;83 · Médiateur Numérique <script>document.write(new Date().getFullYear())</script> · Cahier des charges</span>
+    <div class="ctrls">
+      <div class="ctrl-group" role="group" aria-label="Taille du texte">
+        <span class="lbl" aria-hidden="true">Texte</span>
+        <button class="ctrl size-btn s1" data-size="m" aria-pressed="true" aria-label="Taille du texte normale">A</button>
+        <button class="ctrl size-btn s2" data-size="l" aria-pressed="false" aria-label="Grande taille du texte">A</button>
+        <button class="ctrl size-btn s3" data-size="xl" aria-pressed="false" aria-label="Très grande taille du texte">A</button>
+      </div>
+      <div class="ctrl-group" role="group" aria-label="Thème d'affichage">
+        <button class="ctrl" id="btn-light" data-theme-set="light" aria-pressed="false">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>Clair
+        </button>
+        <button class="ctrl" id="btn-dark" data-theme-set="dark" aria-pressed="true">
+          <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Sombre
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- ===== AJOUT : barre de navigation des sections ===== -->
+  <nav class="secnav" id="secnav" aria-label="Sommaire de la page">
+    <div class="secnav-in">
+      <button type="button" class="secnav-toggle" id="secnav-toggle" aria-expanded="false" aria-controls="secnav-list">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg>
+        <span>Sommaire</span>
+        <span class="secnav-current" id="secnav-current" aria-hidden="true"></span>
+      </button>
+      <ul class="secnav-list" id="secnav-list">
+        <li><a href="#accueil"><span class="n" aria-hidden="true">00</span>Accueil</a></li>
+        <li><a href="#livrable"><span class="n" aria-hidden="true">01</span>Livrable</a></li>
+        <li><a href="#regles"><span class="n" aria-hidden="true">02</span>Règles d'or</a></li>
+        <li><a href="#structure"><span class="n" aria-hidden="true">03</span>Structure</a></li>
+        <li><a href="#sujets"><span class="n" aria-hidden="true">04</span>Les 3 sujets</a></li>
+        <li><a href="#grille"><span class="n" aria-hidden="true">05</span>Auto-évaluation</a></li>
+        <li><a href="#pieges"><span class="n" aria-hidden="true">06</span>Pièges</a></li>
+        <li><a href="#retenir"><span class="n" aria-hidden="true">07</span>À retenir</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- ===== FIN AJOUT barre de navigation ===== -->
+</div>
+
+<header class="hero" id="accueil">
+  <div class="wrap">
+    <p class="eyebrow">Titre professionnel Médiateur Numérique · RNCP 40695</p>
+    <h1>Construire vos fiches de séance,<br><span class="accent">le cahier des charges</span></h1>
+    <p class="lede">Ce document ne contient aucune fiche toute faite. <br> Il vous donne les directives précises : <br> ce que le jury attend, la structure imposée et les critères de réussite. <br> À vous de bâtir vos trois fiches à partir d'une page vierge. <br> C'est exactement ce qui sera évalué.</p>
+
+    <!-- ===== AJOUT : sceau à droite des textes du hero ===== -->
+<style>
+ /* ===== AJOUT : sceau à droite des textes du hero ===== */
+.hero .wrap{ position:relative; }
+.cdc-seal{ position:absolute; top:70px; right:24px; width:min(30%,230px); z-index:2; }
+.cdc-seal svg{ width:100%; height:auto; display:block; filter:drop-shadow(0 6px 18px rgba(0,0,0,.28)); }
+.hero .eyebrow, .hero h1, .hero .lede{ padding-right:262px; }
+@media (max-width:820px){
+  .cdc-seal{ position:static; width:172px; margin:4px auto 20px; }
+  .hero .eyebrow, .hero h1, .hero .lede{ padding-right:0; }
+}
+</style>
+<div class="cdc-seal">
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-label="Sceau : Cahier des charges — Fiches de séance — Médiateur Numérique">
+  <defs>
+    <radialGradient id="cdcs-disc" cx="42%" cy="36%" r="75%">
+      <stop offset="0%" stop-color="#171C27"/>
+      <stop offset="62%" stop-color="#0F131B"/>
+      <stop offset="100%" stop-color="#080A0E"/>
+    </radialGradient>
+    <linearGradient id="cdcs-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F6DA88"/>
+      <stop offset="42%" stop-color="#E3C15A"/>
+      <stop offset="78%" stop-color="#C9A24B"/>
+      <stop offset="100%" stop-color="#9A7B2E"/>
+    </linearGradient>
+    <linearGradient id="cdcs-goldSoft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EAC968"/>
+      <stop offset="100%" stop-color="#B08E3A"/>
+    </linearGradient>
+    <path id="cdcs-arcTop" fill="none" d="M 512,512 m -372,0 a 372,372 0 1 1 744,0"/>
+    <path id="cdcs-arcBot" fill="none" d="M 512,512 m -372,0 a 372,372 0 0 0 744,0"/>
+  </defs>
+  <circle cx="512" cy="512" r="500" fill="url(#cdcs-disc)"/>
+  <circle cx="512" cy="512" r="492" fill="none" stroke="url(#cdcs-gold)" stroke-width="6"/>
+  <circle cx="512" cy="512" r="470" fill="none" stroke="url(#cdcs-goldSoft)" stroke-width="2" opacity="0.7"/>
+  <circle cx="512" cy="512" r="322" fill="none" stroke="url(#cdcs-goldSoft)" stroke-width="2" opacity="0.55"/>
+  <circle cx="512" cy="512" r="312" fill="none" stroke="url(#cdcs-gold)" stroke-width="4"/>
+  <text font-family="'Playfair Display',serif" font-weight="700" fill="url(#cdcs-gold)" font-size="60" letter-spacing="6">
+    <textPath href="#cdcs-arcTop" startOffset="50%" text-anchor="middle">CAHIER DES CHARGES</textPath>
+  </text>
+  <text font-family="'Playfair Display',serif" font-weight="700" fill="url(#cdcs-gold)" font-size="52" letter-spacing="5">
+    <textPath href="#cdcs-arcBot" startOffset="50%" text-anchor="middle">MÉDIATEUR NUMÉRIQUE</textPath>
+  </text>
+  <g fill="url(#cdcs-gold)">
+    <path d="M 150,512 l 16,-11 l 0,22 z"/>
+    <path d="M 874,512 l -16,-11 l 0,22 z"/>
+    <circle cx="176" cy="512" r="4"/>
+    <circle cx="848" cy="512" r="4"/>
+  </g>
+  <g transform="translate(512,486)">
+    <path d="M -150,150 L 150,150 L -150,-100 Z" fill="none" stroke="url(#cdcs-goldSoft)" stroke-width="3" opacity="0.45" stroke-linejoin="round"/>
+    <g transform="rotate(-6)">
+      <rect x="-118" y="-150" width="236" height="300" rx="14" fill="#0C1017" stroke="url(#cdcs-gold)" stroke-width="4"/>
+      <rect x="-118" y="-150" width="236" height="50" rx="14" fill="url(#cdcs-gold)"/>
+      <rect x="-118" y="-124" width="236" height="24" fill="#0C1017"/>
+      <text x="0" y="-127" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="19" letter-spacing="3" fill="#0C1017">FICHE&#160;SÉANCE</text>
+      <g>
+        <g transform="translate(0,-64)">
+          <circle cx="-88" cy="0" r="12" fill="none" stroke="url(#cdcs-gold)" stroke-width="3"/>
+          <text x="-88" y="6" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="16" fill="url(#cdcs-gold)">1</text>
+          <line x1="-64" y1="-4" x2="92" y2="-4" stroke="url(#cdcs-goldSoft)" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+          <line x1="-64" y1="10" x2="52" y2="10" stroke="url(#cdcs-goldSoft)" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+        </g>
+        <g transform="translate(0,-6)">
+          <circle cx="-88" cy="0" r="12" fill="none" stroke="url(#cdcs-gold)" stroke-width="3"/>
+          <text x="-88" y="6" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="16" fill="url(#cdcs-gold)">2</text>
+          <line x1="-64" y1="-4" x2="92" y2="-4" stroke="url(#cdcs-goldSoft)" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+          <line x1="-64" y1="10" x2="60" y2="10" stroke="url(#cdcs-goldSoft)" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+        </g>
+        <g transform="translate(0,52)">
+          <circle cx="-88" cy="0" r="12" fill="none" stroke="url(#cdcs-gold)" stroke-width="3"/>
+          <text x="-88" y="6" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="16" fill="url(#cdcs-gold)">3</text>
+          <line x1="-64" y1="-4" x2="78" y2="-4" stroke="url(#cdcs-goldSoft)" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+          <line x1="-64" y1="10" x2="44" y2="10" stroke="url(#cdcs-goldSoft)" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+        </g>
+      </g>
+      <path d="M -70,116 l 26,26 l 60,-72" fill="none" stroke="url(#cdcs-gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="rotate(38)">
+      <rect x="150" y="-13" width="150" height="26" rx="8" fill="url(#cdcs-gold)"/>
+      <path d="M 150,-13 L 116,0 L 150,13 Z" fill="url(#cdcs-goldSoft)"/>
+      <path d="M 128,0 L 116,0" stroke="#0C1017" stroke-width="3"/>
+      <rect x="296" y="-13" width="20" height="26" rx="6" fill="url(#cdcs-goldSoft)"/>
+    </g>
+  </g>
+</svg>
+</div>
+<!-- ===== FIN AJOUT ===== -->
+
+    <a class="qr" href="https://ko-fi.com/ondeaweb" target="_blank" rel="noopener" aria-label="Soutenir Ondea Web sur Ko-fi (s'ouvre dans un nouvel onglet). QR code à scanner avec votre téléphone.">
+      <span class="qr-halo" aria-hidden="true"></span>
+      <span class="qr-card" id="qr-card">
+        <span class="qr-star s1" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="currentColor"/></svg></span>
+        <span class="qr-star s2" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="currentColor"/></svg></span>
+        <span class="qr-star s3" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="currentColor"/></svg></span>
+        <span class="qr-star s4" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="currentColor"/></svg></span>
+        <span class="qr-frame">
+          <span class="qr-plate">
+            <img src="img/qrcode.png" alt="" width="820" height="820" decoding="async">
+            <span class="qr-scan" aria-hidden="true"></span>
+            <span class="qr-corner tl" aria-hidden="true"></span>
+            <span class="qr-corner tr" aria-hidden="true"></span>
+            <span class="qr-corner bl" aria-hidden="true"></span>
+            <span class="qr-corner br" aria-hidden="true"></span>
+            <span class="qr-shine" aria-hidden="true"></span>
+          </span>
+        </span>
+        <span class="qr-caption">
+          <span class="qr-kicker">Soutenir votre formateur</span>
+          <span class="qr-title">Offrez-moi un café</span>
+          <span class="qr-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M4 12h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Scannez ou cliquez</span>
+        </span>
+      </span>
+    </a>
+
+    <figure class="keystone">
+      <figcaption>La règle qui s'applique à chacune des fiches</figcaption>
+      <svg class="alignsvg" viewBox="0 0 560 300" role="img" aria-labelledby="aT aD">
+        <title id="aT">L'alignement pédagogique</title>
+        <desc id="aD">Les objectifs, le déroulé et l'évaluation doivent se correspondre : chaque objectif est travaillé dans le déroulé, puis vérifié à l'évaluation.</desc>
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path class="arrowhead" d="M0,0 L10,5 L0,10 z"/>
+          </marker>
+        </defs>
+        <!-- arrows forming a loop -->
+        <path class="arrow" d="M215,78 Q280,58 345,78" marker-end="url(#ah)"/>
+        <path class="arrow" d="M392,120 Q420,180 350,222" marker-end="url(#ah)"/>
+        <path class="arrow" d="M210,232 Q150,180 168,120" marker-end="url(#ah)"/>
+        <!-- nodes -->
+        <g>
+          <rect class="node" x="96" y="46" width="128" height="60" rx="12"/>
+          <text class="nlabel" x="160" y="72" text-anchor="middle">Objectifs</text>
+          <text class="nsub" x="160" y="90" text-anchor="middle">ce qu'il saura faire</text>
+        </g>
+        <g>
+          <rect class="node" x="336" y="46" width="128" height="60" rx="12"/>
+          <text class="nlabel" x="400" y="72" text-anchor="middle">Déroulé</text>
+          <text class="nsub" x="400" y="90" text-anchor="middle">ce qu'il pratique</text>
+        </g>
+        <g>
+          <rect class="node" x="216" y="214" width="128" height="60" rx="12"/>
+          <text class="nlabel" x="280" y="240" text-anchor="middle">Évaluation</text>
+          <text class="nsub" x="280" y="258" text-anchor="middle">ce que l'on vérifie</text>
+        </g>
+        <text class="center" x="280" y="150" text-anchor="middle">COHÉRENCE</text>
+      </svg>
+      <p class="verdict">Un jury vérifie d'abord une chose : <strong>chaque objectif annoncé est réellement travaillé dans le déroulé, puis vérifié à l'évaluation.</strong> <br> Gardez ce triangle en tête à chaque rubrique que vous écrivez.</p>
+    </figure>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <!-- LIVRABLE -->
+  <section id="livrable">
+    <div class="wrap">
+      <p class="kicker">Le livrable attendu</p>
+      <h2 class="reveal">Ce que vous devrez <em>produire</em></h2>
+      <p class="section-lead reveal">Trois fiches de séance, complètes et cohérentes entre elles, chacune décrivant l'animation d'une séance de médiation numérique pour un public adulte. <br> Deux à trois pages par fiche, dans un document propre, imprimable et modifiable (Word ou PDF), avec les champs d'identification laissés à compléter et un pied de page paginé.</p>
+      <div class="note-grid">
+        <div class="note reveal">
+          <h3>
+            <svg class="ni" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="1.8" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            Le format
+          </h3>
+          <p>Une même trame pour les trois fiches : <br> bloc d'identification + 12 rubriques numérotées, dans l'ordre imposé ci-dessous. <br> La régularité entre vos fiches fait partie de la note.</p>
+        </div>
+        <div class="note info reveal">
+          <h3>
+            <svg class="ni" viewBox="0 0 24 24" fill="none" stroke="var(--accent-text)" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></svg>
+            À vérifier avec votre formateur
+          </h3>
+          <p>Ces fiches sont des séances d'animation pour public adulte (format des trois fiches de séance du BC01), <br> dont le contenu couvre la sécurisation des pratiques numériques <a href="https://www.francecompetences.fr/recherche/rncp/40695/#anchor3" target="_blank" rel="noopener noreferrer">(BC01)</a>. <br> La répartition exacte des livrables entre blocs peut être précisée localement : confirmez l'attendu de votre session.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGLES D'OR -->
+  <section id="regles">
+    <div class="wrap">
+      <p class="kicker">Les invariants</p>
+      <h2 class="reveal">Neuf <em>règles d'or</em>, valables pour les trois fiches</h2>
+      <p class="section-lead reveal">Avant même la structure, ce sont ces principes que le jury lit entre les lignes. <br> Une fiche qui les respecte est déjà une bonne fiche.</p>
+      <div class="rules">
+        <div class="rule reveal"><span class="rn">01</span><h3>L'alignement d'abord</h3><p>Objectifs, déroulé et évaluation se répondent. <br> Rien dans le déroulé qui ne serve un objectif : aucun objectif qui ne soit vérifié.</p></div>
+        <div class="rule reveal"><span class="rn">02</span><h3>Des verbes observables</h3><p>Un objectif se formule « le participant est capable de… » suivi d'un verbe qu'on peut constater : citer, distinguer, reconnaître, se connecter, appliquer. Jamais « comprendre » ni « savoir ».</p></div>
+        <div class="rule reveal"><span class="rn">03</span><h3>Le participant pratique</h3><p>Méthode active : on part du vécu, on manipule, on apprend en faisant. <br> La séance n'est pas un exposé : <br> le médiateur guide, il ne récite pas.</p></div>
+        <div class="rule reveal"><span class="rn">04</span><h3>Un minutage qui tombe juste</h3><p>La somme des durées du déroulé égale exactement la durée annoncée. <br> 60 min annoncées = 60 min détaillées.</p></div>
+        <div class="rule reveal"><span class="rn">05</span><h3>Deux colonnes d'action</h3><p>Dans le déroulé, ce que fait le médiateur et ce que font les participants sont distingués, <br> phase par phase.</p></div>
+        <div class="rule reveal"><span class="rn">06</span><h3>La sécurité intégrée</h3><p>On s'entraîne sur des données fictives. Le médiateur ne demande, ne saisit ni ne note jamais les vrais mots de passe ou codes des personnes.</p></div>
+        <div class="rule reveal"><span class="rn">07</span><h3>Jamais à la place</h3><p>Le médiateur rend autonome. <br> Quand une démarche doit vraiment être faite pour la personne, cela relève du cadre habilité et tracé Aidants Connect — pas d'une connexion improvisée.</p></div>
+        <div class="rule reveal"><span class="rn">08</span><h3>Accessible à tous</h3><p>Gros caractères, fort contraste, rythme lent, langage sans jargon, chaque mot nouveau expliqué par une image concrète. Personne ne décroche.</p></div>
+        <div class="rule reveal"><span class="rn">09</span><h3>Des sources officielles</h3><p>Seules les références publiques font foi : <br> les sites en <span style="font-family:'JetBrains Mono',monospace">.gouv.fr</span>, la CNIL, service-public.fr. <br> Pas de blog ni de source commerciale.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRUCTURE RUBRIQUE PAR RUBRIQUE -->
+  <section id="structure">
+    <div class="wrap">
+      <p class="kicker">La structure imposée</p>
+      <h2 class="reveal">Rubrique par rubrique, <em>ce qui est attendu</em></h2>
+      <p class="section-lead reveal">Suivez l'ordre. <br> Pour chaque rubrique : ce qu'elle doit contenir, puis le critère de réussite que le jury applique.</p>
+
+      <ol class="steps">
+        <li class="identif reveal">
+          <h3>Bloc d'identification</h3>
+          <p>Un tableau à compléter par le candidat : nom et prénom, structure d'accueil, date de la séance, session d'examen. <br> Laissez les champs vides, prêts à remplir.</p>
+          <p class="crit"><b>Critère —</b> les quatre champs sont présents et vierges : ils réapparaissent à l'identique sur les trois fiches.</p>
+        </li>
+        <li class="reveal">
+          <h3>Cadre de référence</h3>
+          <p>Trois lignes qui ancrent la fiche dans le titre : la certification (Médiateur Numérique — RNCP 40695, niveau 5), <br> la compétence visée (sécuriser les pratiques numériques des publics), <br> l'activité (concevoir et animer une sensibilisation aux risques numériques pour un public adulte).</p>
+          <p class="crit"><b>Critère —</b> le rattachement à la certification et à la compétence est explicite et exact.</p>
+        </li>
+        <li class="reveal">
+          <h3>Informations générales</h3>
+          <p>Le contexte de la séance : public visé (avec tranche d'âge et niveau), effectif, durée, lieu et contexte, prérequis, intervenant. Des valeurs réalistes et cohérentes avec votre thème.</p>
+          <span class="ex-inline">Public : adultes en insertion (25–55 ans), débutants · Effectif : 6 à 8 · Durée : 1 h 30 · Lieu : salle informatique d'un EPN, un poste par personne · Prérequis : clavier et souris</span>
+          <p class="crit"><b>Critère —</b> public, durée et lieu sont cohérents entre eux et avec le déroulé qui suivra.</p>
+        </li>
+        <li class="reveal">
+          <h3>Objectifs pédagogiques</h3>
+          <p>Un objectif général (la visée de la séance), puis quatre objectifs opérationnels formulés « à la fin de la séance, le participant est capable de… ». C'est la rubrique la plus scrutée : elle commande le déroulé et l'évaluation.</p>
+          <span class="ex-inline">Le participant est capable de :<br>· citer au moins 2 signaux d'alerte d'un SMS frauduleux ;<br>· distinguer, sur des exemples, un SMS légitime d'un SMS piégé ;<br>· énoncer le bon réflexe : ne pas cliquer, vérifier soi-même ;<br>· citer un numéro utile (33700, Cybermalveillance).</span>
+          <p class="crit"><b>Critère —</b> chaque objectif commence par un verbe observable et sera repris tel quel dans le déroulé puis dans l'évaluation.</p>
+        </li>
+        <li class="reveal">
+          <h3>Matériel et supports</h3>
+          <p>La liste concrète de ce qu'il faut pour animer : matériel (vidéoprojecteur, postes, paperboard), supports <br> (diaporama en gros caractères, jeu de cartes, fiches) et le mémo A5 remis aux participants.</p>
+          <p class="crit"><b>Critère —</b> tout support cité dans le déroulé apparaît ici, et réciproquement.</p>
+        </li>
+        <li class="reveal">
+          <h3>Modalités et méthodes pédagogiques</h3>
+          <p>En quelques lignes, votre approche : méthode active et participative, alternance de temps collectifs et de travail en binômes ou individuel, le médiateur qui guide sans faire à la place. <br> Intégrez ici le point de sécurité s'il structure la séance (données fictives).</p>
+          <p class="crit"><b>Critère —</b> la méthode annoncée se retrouve réellement dans le déroulé (des temps de pratique, pas seulement d'écoute).</p>
+        </li>
+        <li class="reveal">
+          <h3>Déroulé détaillé et minuté</h3>
+          <p>Le cœur de la fiche : un tableau de 5 ou 6 phases, en quatre colonnes. <br> Chaque phase sépare l'action du médiateur et celle des participants. <br> Ouvrez sur l'accueil et le vécu, fermez sur l'évaluation et la remise du mémo.</p>
+          <div class="tbl-wrap">
+            <table class="derou">
+              <thead><tr><th>Étape</th><th>Durée</th><th>Déroulé et activités</th><th>Supports</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Découverte des signaux</td>
+                  <td class="dur">15 min</td>
+                  <td><span class="who">Médiateur —</span> projette 2 SMS frauduleux et fait réagir ; nomme les 3 signaux avec le groupe.<br><span class="who">Participants —</span> observent et repèrent les indices à voix haute.</td>
+                  <td>Diaporama</td>
+                </tr>
+                <tr>
+                  <td>Mise en pratique : le tri</td>
+                  <td class="dur">20 min</td>
+                  <td><span class="who">Médiateur —</span> distribue les cartes, circule, relance sans donner la réponse.<br><span class="who">Participants —</span> en binômes, trient « piège / normal » et justifient.</td>
+                  <td>Jeu de cartes A5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="crit"><b>Critère —</b> la somme des durées égale la durée totale ; les deux colonnes d'action sont distinctes ; chaque objectif est visiblement travaillé dans au moins une phase.</p>
+        </li>
+        <li class="reveal">
+          <h3>Évaluation des acquis</h3>
+          <p>Comment vous vérifiez que les objectifs sont atteints, sur deux temps : en continu (une observation avec un critère de réussite chiffré) et en fin de séance (un court quiz oral de 3 questions, une par objectif clé).</p>
+          <span class="ex-inline">En continu : chaque binôme identifie correctement au moins 3 SMS sur 4.<br>En fin de séance : citer 2 signaux · énoncer le bon réflexe · nommer un numéro utile.</span>
+          <p class="crit"><b>Critère —</b> chaque question d'évaluation renvoie à un objectif annoncé en rubrique 3. Aucun objectif sans vérification.</p>
+        </li>
+        <li class="reveal">
+          <h3>Document remis aux participants</h3>
+          <p>Le mémo A5 « à emporter », en gros caractères : les 3 réflexes ou la recette de la séance, plus les numéros utiles. C'est la trace concrète que le participant repart avec quelque chose.</p>
+          <p class="crit"><b>Critère —</b> le contenu du mémo reprend fidèlement le message clé de la séance et figure aussi dans le matériel (rubrique 4).</p>
+        </li>
+        <li class="reveal">
+          <h3>Adaptation à l'accessibilité et au handicap</h3>
+          <p>Des mesures concrètes, pas une formule : gros caractères et fort contraste, rythme lent et reformulation, langage sans jargon, alternative papier, boucle magnétique si disponible, vigilance pour que personne ne décroche.</p>
+          <p class="crit"><b>Critère —</b> au moins trois adaptations concrètes et adaptées à votre public précis.</p>
+        </li>
+        <li class="reveal">
+          <h3>Posture et limites du médiateur</h3>
+          <p>La ligne éthique : sensibiliser et rendre autonome, ne jamais se connecter ni manipuler les comptes à la place, écouter sans juger une victime et l'orienter. <br> Nommez le cadre Aidants Connect quand une démarche doit être réellement réalisée pour la personne.</p>
+          <div class="callout warn">
+            <svg class="cico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+            <span><b>C'est un point noté.</b> <br> Une fiche qui laisse le médiateur saisir les identifiants de l'usager ou noter un vrai mot de passe est disqualifiante sur la compétence.</span>
+          </div>
+        </li>
+        <li class="reveal">
+          <h3>Ressources et références officielles</h3>
+          <p>Trois à quatre sources publiques utiles au thème : cybermalveillance.gouv.fr, 17cyber.gouv.fr, service-public.fr, franceconnect.gouv.fr, cnil.fr, aidantsconnect.beta.gouv.fr — choisies selon la séance.</p>
+          <p class="crit"><b>Critère —</b> uniquement des sources officielles, et pertinentes pour le sujet traité.</p>
+        </li>
+        <li class="reveal">
+          <h3>Bilan de la séance — à compléter après l'animation</h3>
+          <p>Trois lignes laissées vides, à remplir après avoir animé : points forts observés, difficultés rencontrées, ajustements pour la prochaine fois. <br> Elles montrent une posture réflexive.</p>
+          <p class="crit"><b>Critère —</b> la rubrique est présente et vierge, prête à recevoir votre retour d'expérience.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TROIS SUJETS -->
+  <section id="sujets">
+    <div class="wrap">
+      <p class="kicker">Vos trois sujets</p>
+      <h2 class="reveal">Trois fiches séances à <em>construire</em></h2>
+      <p class="section-lead reveal">Un jeu cohérent couvrant la sécurisation des pratiques. <br> Partez de cet ordre, puis rédigez chaque fiche entièrement vous-même <br>— durées et effectifs sont des propositions à ajuster à votre contexte réel.</p>
+      <div class="briefs">
+        <div class="brief reveal">
+          <span class="bt">Séance 1</span>
+          <h3>Repérer les SMS d'arnaque</h3>
+          <dl>
+            <dt>Public</dt><dd>Seniors débutants <br> (65–80 ans), en résidence autonomie</dd>
+            <dt>Durée</dt><dd>1 heure</dd>
+            <dt>Lieu</dt><dd>Salle commune, atelier collectif</dd>
+            <dt>Cœur</dt><dd>Trier de vrais et faux SMS, dégager les 3 réflexes</dd>
+          </dl>
+        </div>
+        <div class="brief reveal">
+          <span class="bt">Séance 2</span>
+          <h3>Créer et protéger ses mots de passe</h3>
+          <dl>
+            <dt>Public</dt><dd>Adultes en insertion <br> (25–55 ans), peu à l'aise</dd>
+            <dt>Durée</dt><dd>1 h 30</dd>
+            <dt>Lieu</dt><dd>Salle informatique d'un EPN, un poste par personne</dd>
+            <dt>Cœur</dt><dd>Phrase de passe fictive, mot de passe unique, 2FA, coffre-fort</dd>
+          </dl>
+        </div>
+        <div class="brief reveal">
+          <span class="bt">Séance 3</span>
+          <h3>Faire ses démarches en ligne en sécurité</h3>
+          <dl>
+            <dt>Public</dt><dd>Usagers d'une Maison France Services (30–70 ans)</dd>
+            <dt>Durée</dt><dd>1 h 30</dd>
+            <dt>Lieu</dt><dd>Espace numérique, un poste par personne</dd>
+            <dt>Cœur</dt><dd>Reconnaître le .gouv.fr, FranceConnect, se déconnecter</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section id="grille">
+    <div class="wrap">
+      <p class="kicker">Avant de rendre</p>
+      <h2 class="reveal">La grille d'auto-évaluation</h2>
+      <p class="section-lead reveal">Relisez chaque fiche avec cette grille. <br> Si une case ne peut pas être cochée (soyez honnêtes avec vous-mêmes), la fiche n'est pas prête.</p>
+      <div class="check reveal">
+  <p class="ct">Je coche seulement ce qui est vrai</p>
+  <ul>
+    <li>
+      <input type="checkbox" id="check1" class="checkbox-input" aria-hidden="true">
+      <label for="check1" class="checkbox-custom"></label>
+      <span>Mes objectifs commencent tous par un verbe observable (« citer », « reconnaître »…), <br> jamais « comprendre » ni « savoir ».</span>
+    </li>
+    <li>
+      <input type="checkbox" id="check2" class="checkbox-input" aria-hidden="true">
+      <label for="check2" class="checkbox-custom"></label>
+      <span>Chaque objectif est travaillé dans une phase du déroulé <b>et</b> vérifié dans l'évaluation.</span>
+    </li>
+    <li>
+      <input type="checkbox" id="check3" class="checkbox-input" aria-hidden="true">
+      <label for="check3" class="checkbox-custom"></label>
+      <span>La somme des durées du déroulé tombe exactement sur la durée annoncée.</span>
+    </li>
+    <li>
+      <input type="checkbox" id="check4" class="checkbox-input" aria-hidden="true">
+      <label for="check4" class="checkbox-custom"></label>
+      <span>Dans chaque phase, ce que fait le formateur et ce que font les participants sont distincts.</span>
+    </li>
+    <li>
+      <input type="checkbox" id="check5" class="checkbox-input" aria-hidden="true">
+      <label for="check5" class="checkbox-custom"></label>
+      <span>Les participants pratiquent réellement ; la séance n'est pas un exposé.</span>
+    </li>
+    <li>
+      <input type="checkbox" id="check6" class="checkbox-input" aria-hidden="true">
+      <label for="check6" class="checkbox-custom"></label>
+      <span>On ne travaille que sur des données fictives ; aucun vrai mot de passe ou code n'est demandé.</span>
+    </li>
+    <li>
+      <input type="checkbox" id="check7" class="checkbox-input" aria-hidden="true">
+      <label for="check7" class="checkbox-custom"></label>
+      <span>La posture « jamais à la place » et le cadre Aidants Connect sont posés clairement.</span>
+    </li>
+    <li>
+      <input type="checkbox" id="check8" class="checkbox-input" aria-hidden="true">
+      <label for="check8" class="checkbox-custom"></label>
+      <span>J'ai au moins trois adaptations d'accessibilité concrètes pour mon public.</span>
+    </li>
+    <li>
+      <input type="checkbox" id="check9" class="checkbox-input" aria-hidden="true">
+      <label for="check9" class="checkbox-custom"></label>
+      <span>Mes sources sont uniquement officielles et adaptées au sujet.</span>
+    </li>
+    <li>
+      <input type="checkbox" id="check10" class="checkbox-input" aria-hidden="true">
+      <label for="check10" class="checkbox-custom"></label>
+      <span>Les 12 rubriques et le bloc d'identification sont présents, dans l'ordre, avec pied de page paginé.</span>
+    </li>
+    <li>
+      <input type="checkbox" id="check11" class="checkbox-input" aria-hidden="true">
+      <label for="check11" class="checkbox-custom"></label>
+      <span>Mes trois fiches suivent la même trame et se ressemblent visuellement.</span>
+    </li>
+  </ul>
+</div>
+    </div>
+  </section>
+
+  <!-- PIEGES -->
+  <section id="pieges">
+    <div class="wrap">
+      <p class="kicker">À éviter</p>
+      <h2 class="reveal">Les <em>pièges</em> qui coûtent des points</h2>
+      <div class="pitfalls">
+        <div class="pitfall reveal"><h3>Des objectifs qu'on ne peut pas mesurer</h3><p>« Comprendre l'importance des mots de passe » <br> ne se vérifie pas. <br> Reformulez avec un verbe d'action observable et évaluable.</p></div>
+        <div class="pitfall reveal"><h3>Un déroulé où le médiateur parle tout le temps</h3><p>Si les participants ne font qu'écouter, <br> la méthode active n'est pas là. <br> Prévoyez de la manipulation à chaque phase centrale.</p></div>
+        <div class="pitfall reveal"><h3>Une évaluation décrochée des objectifs</h3><p>Un quiz qui teste autre chose que ce qui était annoncé casse l'alignement. <br> Une question par objectif clé, pas plus, pas moins.</p></div>
+        <div class="pitfall reveal"><h3>Un minutage qui ne tombe pas juste</h3><p>Des phases qui totalisent 75 min pour une séance d'1 h 30 : le jury le voit tout de suite. Additionnez avant de rendre.</p></div>
+        <div class="pitfall reveal"><h3>Le médiateur qui fait à la place</h3><p>Saisir les identifiants de l'usager, noter un mot de passe : c'est la faute qui disqualifie sur la compétence. <br> Restez sur l'autonomie et Aidants Connect.</p></div>
+        <div class="pitfall reveal"><h3>Une accessibilité en slogan</h3><p>« Séance accessible à tous » ne suffit pas. <br> Nommez des mesures concrètes et adaptées à votre public précis.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECAP -->
+  <section id="retenir">
+    <div class="wrap">
+      <p class="kicker">En une phrase</p>
+      <h2 class="reveal">Ce qu'il faut retenir</h2>
+      <div class="recap reveal">
+        <ol>
+          <li><b>Trois fiches, une même trame</b> : bloc d'identification + 12 rubriques, dans l'ordre.</li>
+          <li><b>L'alignement commande tout</b> : objectifs observables → déroulé qui les travaille → évaluation qui les vérifie.</li>
+          <li><b>Une séance où l'on pratique</b>, minutée juste, formateur et participants distingués.</li>
+          <li><b>La sécurité et l'éthique intégrées</b> : données fictives, jamais à la place, Aidants Connect.</li>
+          <li><b>Accessible et sourcée officiellement</b>, puis relue avec la grille avant de rendre.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="brandf">Ondea Web Studio · Draguignan</span>
+    <span>Centre de Formation MODE 83 · Cahier des charges stagiaires Médiateur Numérique session <script>document.write(new Date().getFullYear())</script></span>
+  </div>
+</footer>
+
+<!-- Bouton retour en haut -->
+<button id="scrollToTop" class="scroll-to-top" aria-label="Retour en haut de page">
+  <svg class="scroll-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var store={get:function(k){try{return localStorage.getItem(k);}catch(e){return null;}},
+             set:function(k,v){try{localStorage.setItem(k,v);}catch(e){}}};
+  var btnLight=document.getElementById('btn-light'),btnDark=document.getElementById('btn-dark');
+  function applyTheme(t){root.setAttribute('data-theme',t);var d=(t==='dark');
+    btnDark.setAttribute('aria-pressed',String(d));btnLight.setAttribute('aria-pressed',String(!d));
+    root.style.colorScheme=d?'dark':'light';}
+  var saved=store.get('cdc-theme');
+  applyTheme((saved==='light'||saved==='dark')?saved:(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));
+  [btnLight,btnDark].forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-theme-set');applyTheme(t);store.set('cdc-theme',t);});});
+  var mq=window.matchMedia('(prefers-color-scheme: light)');
+  mq.addEventListener&&mq.addEventListener('change',function(e){if(!store.get('cdc-theme')){applyTheme(e.matches?'light':'dark');}});
+
+  var sizeBtns=Array.prototype.slice.call(document.querySelectorAll('.size-btn'));
+  function applySize(s){root.setAttribute('data-textsize',s);
+    sizeBtns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-size')===s));});}
+  var ss=store.get('cdc-size'); if(ss){applySize(ss);}
+  sizeBtns.forEach(function(b){b.addEventListener('click',function(){var s=b.getAttribute('data-size');applySize(s);store.set('cdc-size',s);});});
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets=document.querySelectorAll('.reveal');
+  if(reduce||!('IntersectionObserver' in window)){targets.forEach(function(el){el.classList.add('in');});}
+  else{var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+    targets.forEach(function(el){io.observe(el);});}
+})();
+
+// Bouton retour en haut
+(function() {
+  const scrollToTopBtn = document.getElementById('scrollToTop');
+
+  if (scrollToTopBtn) {
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+})();
+
+// Ajout d'un effet de zoom pour le sceau dans le hero
+(function() {
+  const cdcSeal = document.querySelector('.cdc-seal');
+  if (cdcSeal) {
+    cdcSeal.addEventListener('mouseenter', function() {
+      this.classList.add('hover');
+    });
+    cdcSeal.addEventListener('mouseleave', function() {
+      this.classList.remove('hover');
+    });
+  }
+})();
+</script>
+
+<!-- ===== AJOUT : agrandissement/diminution réel de TOUS les textes ===== -->
+<style>
+  /* 1) On pilote la taille racine : tout ce qui est en rem (titres, libellés,
+        tableau, cartes, boutons, pied de page…) suit désormais les boutons. */
+  :root[data-textsize="m"]{  font-size:16px;   --ts:1;    }
+  :root[data-textsize="l"]{  font-size:18.5px; --ts:1.16; }
+  :root[data-textsize="xl"]{ font-size:21px;   --ts:1.32; }
+
+  /* 2) Les titres fluides (clamp avec vw) : on multiplie l'ensemble par --ts,
+        bornes en px pour éviter tout double-agrandissement. */
+  h1{   font-size:clamp(calc(35.2px*var(--ts)), calc(5.6vw*var(--ts)), calc(62.4px*var(--ts))); }
+  h2{   font-size:clamp(calc(26.4px*var(--ts)), calc(3.8vw*var(--ts)), calc(38.4px*var(--ts))); }
+  .lede{font-size:clamp(calc(16.3px*var(--ts)), calc(2.1vw*var(--ts)), calc(19.8px*var(--ts))); }
+
+  /* 3) Le schéma d'alignement (SVG) et ses libellés suivent aussi la taille. */
+  .alignsvg{ max-width:37.5rem; }
+</style>
+<!-- ===== FIN AJOUT ===== -->
+
+<!-- ===== AJOUT : QR Code Ko-fi à droite des textes du hero ===== -->
+<style>
+  /* Grand écran : colonne de droite = sceau en haut + QR code dessous ; le schéma reste pleine largeur */
+  @media (min-width:821px){
+    .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:40px;align-items:start}
+    .hero .wrap>*{grid-column:1}
+    .hero .eyebrow{grid-row:1}
+    .hero h1{grid-row:2}
+    .hero .lede{grid-row:3}
+    .hero .eyebrow,.hero h1,.hero .lede{padding-right:0}
+    .hero .wrap>.cdc-seal{position:static;grid-column:2;grid-row:1/span 2;width:200px;justify-self:center;align-self:start;margin-top:6px}
+    .hero .wrap>.qr{grid-column:2;grid-row:3/span 2;justify-self:center;align-self:start;margin:22px 0 0}
+    .hero .wrap>.keystone{grid-column:1/-1;grid-row:5}
+  }
+
+  /* Couleurs propres au QR, adaptées à chaque thème */
+  .hero .qr{
+    --qr-glow:rgba(242,206,107,.42);
+    --qr-shim:#F2CE6B;
+    --qr-sh:0 1px 0 rgba(255,255,255,.06) inset,0 22px 50px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.3);
+    --qr-sh-h:0 1px 0 rgba(255,255,255,.08) inset,0 30px 70px rgba(0,0,0,.55),0 0 0 1px rgba(242,206,107,.35),0 0 40px rgba(242,206,107,.22);
+  }
+  [data-theme="light"] .hero .qr{
+    --qr-glow:rgba(183,148,54,.34);
+    --qr-shim:#C9A24B;
+    --qr-sh:0 1px 0 rgba(255,255,255,.9) inset,0 18px 40px rgba(91,70,17,.16),0 2px 6px rgba(91,70,17,.08);
+    --qr-sh-h:0 1px 0 rgba(255,255,255,.9) inset,0 26px 56px rgba(91,70,17,.22),0 0 0 1px rgba(183,148,54,.45),0 0 36px rgba(183,148,54,.25);
+  }
+
+  .hero .qr{position:relative;display:block;width:210px;max-width:100%;margin:0 auto 26px;
+    text-decoration:none;color:inherit;perspective:900px;border-radius:20px;
+    animation:qr-in 1.1s cubic-bezier(.2,.8,.2,1) .25s both,qr-float 6s ease-in-out 1.4s infinite}
+  .hero .qr:focus-visible{outline:3px solid var(--accent-text);outline-offset:6px}
+
+  /* Halo doré qui respire */
+  .qr-halo{position:absolute;inset:-14%;z-index:0;border-radius:50%;pointer-events:none;
+    background:radial-gradient(closest-side,var(--qr-glow),transparent 76%);
+    filter:blur(18px);animation:qr-pulse 4s ease-in-out infinite}
+
+  /* Carte */
+  .qr-card{--rx:0deg;--ry:0deg;--mx:50%;--my:50%;position:relative;z-index:1;display:grid;gap:12px;
+    padding:13px 13px 15px;border-radius:20px;color:var(--ink);
+    background:linear-gradient(160deg,var(--panel-2),var(--panel));
+    border:1px solid var(--accent-edge);box-shadow:var(--qr-sh);
+    transform:rotateX(var(--rx)) rotateY(var(--ry));transform-style:preserve-3d;
+    transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s}
+  .qr-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;
+    background:radial-gradient(220px circle at var(--mx) var(--my),rgba(242,206,107,.22),transparent 60%)}
+  .hero .qr:hover .qr-card,.hero .qr:focus-visible .qr-card{border-color:var(--accent-deco);box-shadow:var(--qr-sh-h);
+    transition:transform .12s ease-out,box-shadow .4s,border-color .4s}
+  .hero .qr:hover .qr-card::after{opacity:1}
+
+  /* Cadre à bordure dorée tournante */
+  .qr-frame{position:relative;display:block;padding:3px;border-radius:14px;overflow:hidden;isolation:isolate;transform:translateZ(26px)}
+  .qr-frame::before{content:"";position:absolute;inset:-50%;z-index:-1;
+    background:conic-gradient(from 0deg,#B8902A,#F6DA88 12%,#8A6B24 25%,#F6DA88 40%,#C9A24B 55%,#0B0E13 68%,#F6DA88 85%,#B8902A);
+    animation:qr-spin 5s linear infinite}
+  .qr-plate{position:relative;display:block;padding:8px;border-radius:11px;background:#FFFFFF;overflow:hidden}
+  .qr-plate img{display:block;width:100%;height:auto;border-radius:5px}
+
+  /* Laser de scan (multiply : le QR reste lisible) */
+  .qr-scan{position:absolute;left:0;right:0;top:0;height:25%;pointer-events:none;mix-blend-mode:multiply;
+    background:linear-gradient(180deg,transparent 0%,rgba(242,206,107,.15) 45%,rgba(227,193,90,.6) 100%);
+    animation:qr-scan 3.4s cubic-bezier(.45,0,.55,1) infinite}
+  .qr-scan::after{content:"";position:absolute;left:4%;right:4%;bottom:0;height:2px;border-radius:2px;background:#B8902A;
+    box-shadow:0 0 10px 2px rgba(227,193,90,.9)}
+
+  /* Coins de viseur */
+  .qr-corner{position:absolute;width:17px;height:17px;border:3px solid #B8902A;pointer-events:none;
+    animation:qr-corner 2.4s ease-in-out infinite}
+  .qr-corner.tl{top:4px;left:4px;border-right:0;border-bottom:0;border-radius:7px 0 0 0;--dx:3px;--dy:3px}
+  .qr-corner.tr{top:4px;right:4px;border-left:0;border-bottom:0;border-radius:0 7px 0 0;--dx:-3px;--dy:3px}
+  .qr-corner.bl{bottom:4px;left:4px;border-right:0;border-top:0;border-radius:0 0 0 7px;--dx:3px;--dy:-3px}
+  .qr-corner.br{bottom:4px;right:4px;border-left:0;border-top:0;border-radius:0 0 7px 0;--dx:-3px;--dy:-3px}
+
+  /* Reflet lumineux (automatique et au survol) */
+  .qr-shine{position:absolute;inset:0;pointer-events:none;transform:translateX(-130%);
+    background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.75) 50%,transparent 65%);
+    animation:qr-shine 7s ease-in-out 2s infinite}
+  .hero .qr:hover .qr-shine{animation:qr-shine-hover 1s ease forwards}
+
+  /* Étincelles scintillantes */
+  .qr-star{position:absolute;z-index:2;width:14px;height:14px;pointer-events:none;color:var(--accent-deco);
+    filter:drop-shadow(0 0 6px var(--qr-glow));animation:qr-twinkle 3s ease-in-out infinite}
+  .qr-star svg{width:100%;height:100%;display:block}
+  .qr-star.s1{top:-6px;left:-6px}
+  .qr-star.s2{top:28%;right:-9px;width:10px;height:10px;animation-delay:.8s}
+  .qr-star.s3{bottom:22%;left:-9px;width:11px;height:11px;animation-delay:1.6s}
+  .qr-star.s4{bottom:-7px;right:12%;animation-delay:2.3s}
+
+  /* Légende */
+  .qr-caption{display:grid;gap:2px;text-align:center;transform:translateZ(14px)}
+  .qr-kicker{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-text)}
+  .qr-title{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:1.15rem;line-height:1.2;
+    background:linear-gradient(90deg,var(--ink) 0 38%,var(--qr-shim) 50%,var(--ink) 62% 100%);background-size:250% 100%;
+    -webkit-background-clip:text;background-clip:text;color:transparent;animation:qr-text 5s linear infinite}
+  .qr-hint{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-size:.8rem;color:var(--muted)}
+  .qr-hint svg{width:16px;height:16px;color:var(--accent-text);animation:qr-blink 2s ease-in-out infinite}
+
+  @keyframes qr-in{from{opacity:0;scale:.85;filter:blur(8px)}to{opacity:1;scale:1;filter:none}}
+  @keyframes qr-float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+  @keyframes qr-pulse{0%,100%{opacity:.55;scale:.95}50%{opacity:1;scale:1.06}}
+  @keyframes qr-spin{to{transform:rotate(1turn)}}
+  @keyframes qr-scan{0%{transform:translateY(-100%);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateY(400%);opacity:0}}
+  @keyframes qr-corner{0%,100%{translate:0 0;border-color:#B8902A}50%{translate:var(--dx) var(--dy);border-color:#E3C15A}}
+  @keyframes qr-shine{0%{transform:translateX(-130%)}12%,100%{transform:translateX(130%)}}
+  @keyframes qr-shine-hover{from{transform:translateX(-130%)}to{transform:translateX(130%)}}
+  @keyframes qr-twinkle{0%,100%{opacity:0;scale:.3;rotate:0deg}45%,55%{opacity:1;scale:1;rotate:90deg}}
+  @keyframes qr-text{from{background-position:100% 0}to{background-position:-150% 0}}
+  @keyframes qr-blink{0%,100%{opacity:1}50%{opacity:.35}}
+
+  @media (prefers-reduced-motion:reduce){
+    .hero .qr,.hero .qr *,.hero .qr *::before,.hero .qr *::after{animation:none!important}
+    .qr-scan,.qr-star{display:none}
+    .qr-card{transform:none!important}
+  }
+</style>
+<script>
+(function(){
+  "use strict";
+  var q=document.querySelector(".hero .qr"),c=document.getElementById("qr-card");
+  if(!q||!c) return;
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if(!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  var raf=0,ev=null;
+  function apply(){
+    raf=0; if(!ev) return;
+    var r=c.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width,y=(ev.clientY-r.top)/r.height;
+    x=Math.min(1,Math.max(0,x)); y=Math.min(1,Math.max(0,y));
+    c.style.setProperty("--ry",((x-.5)*18).toFixed(2)+"deg");
+    c.style.setProperty("--rx",((.5-y)*18).toFixed(2)+"deg");
+    c.style.setProperty("--mx",(x*100).toFixed(1)+"%");
+    c.style.setProperty("--my",(y*100).toFixed(1)+"%");
+  }
+  q.addEventListener("pointermove",function(e){ev=e;if(!raf)raf=requestAnimationFrame(apply)});
+  q.addEventListener("pointerleave",function(){
+    ev=null;
+    c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg");
+    c.style.setProperty("--mx","50%");c.style.setProperty("--my","50%");
+  });
+})();
+</script>
+<!-- ===== FIN AJOUT QR ===== -->
+
+
+<!-- ===== AJOUT : style « époustouflant » (fonds animés, entrée du hero, cartes, transitions) ===== -->
+<div class="wow-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<canvas class="wow-dust" id="wow-dust" aria-hidden="true"></canvas>
+<div class="wow-spot" id="wow-spot" aria-hidden="true"></div>
+<div class="wow-progress" aria-hidden="true"><span id="wow-progress"></span></div>
+<style>
+  @property --wow-ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+
+  ::selection{background:var(--accent-deco);color:var(--pill-ink)}
+
+  /* ── Fonds vivants : aurore dorée, poussière d'or, halo qui suit la souris */
+  .wow-aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .wow-aurora i{position:absolute;width:60vmax;height:60vmax;border-radius:50%}
+  .wow-aurora i:nth-child(1){top:-25vmax;right:-18vmax;background:radial-gradient(circle,var(--wow-au1),transparent 62%);animation:wow-drift1 26s ease-in-out infinite alternate}
+  .wow-aurora i:nth-child(2){top:35vh;left:-25vmax;background:radial-gradient(circle,var(--wow-au2),transparent 62%);animation:wow-drift2 32s ease-in-out infinite alternate}
+  .wow-aurora i:nth-child(3){bottom:-30vmax;right:10vw;background:radial-gradient(circle,var(--wow-au3),transparent 62%);animation:wow-drift3 38s ease-in-out infinite alternate}
+  .wow-dust{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .wow-spot{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .6s;
+    background:radial-gradient(600px circle at var(--cx,50%) var(--cy,-20%),var(--wow-spot),transparent 60%)}
+  .wow-spot.on{opacity:1}
+
+  /* ── Barre de progression de lecture */
+  .wow-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:45;pointer-events:none}
+  .wow-progress span{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);
+    background:linear-gradient(90deg,var(--accent-edge),var(--accent-deco),var(--wow-hi));box-shadow:0 0 12px var(--wow-glow)}
+
+  /* ── Barre de contrôle : reflet doré qui balaie le filet du bas */
+  .controlbar{overflow:hidden}
+  .controlbar::after{content:"";position:absolute;bottom:-1px;left:0;width:30%;height:1px;pointer-events:none;
+    background:linear-gradient(90deg,transparent,var(--accent-deco),var(--wow-hi),var(--accent-deco),transparent);
+    animation:wow-sweep 7s linear infinite}
+
+  /* ── Hero : titre en or miroitant, sceau couronné d'un anneau tournant */
+  .hero h1 .accent{background:linear-gradient(100deg,var(--accent-text) 0%,var(--accent-text) 35%,var(--wow-hi) 50%,var(--accent-text) 65%,var(--accent-text) 100%);
+    background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+    padding-right:.1em;animation:wow-shimmer 6s linear infinite}
+  html .hero .wrap>.cdc-seal{position:relative;top:auto;right:auto}
+  .cdc-seal::before{content:"";position:absolute;inset:-7%;border-radius:50%;pointer-events:none;
+    background:conic-gradient(from var(--wow-ang),transparent 0 60%,var(--accent-deco) 80%,var(--wow-hi) 86%,transparent 93%);
+    -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));
+    mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));
+    animation:wow-ang 7s linear infinite}
+  .cdc-seal::after{content:"";position:absolute;inset:-16%;border-radius:50%;z-index:-1;pointer-events:none;
+    background:radial-gradient(closest-side,var(--wow-glow),transparent 70%);animation:wow-breathe 4.5s ease-in-out infinite}
+
+  /* ── Entrée orchestrée du hero après le rideau (uniquement si l'intro est active) */
+  html.wow{--wb:2s}
+  html.wow.wow-skip{--wb:0s}
+  html.wow .hero .eyebrow{animation:wow-in-left .9s cubic-bezier(.2,.8,.2,1) calc(var(--wb) + .05s) both}
+  html.wow .hero h1{animation:wow-clip 1.15s cubic-bezier(.2,.8,.2,1) calc(var(--wb) + .15s) both}
+  html.wow .hero .lede{animation:wow-in-up .9s cubic-bezier(.2,.8,.2,1) calc(var(--wb) + .4s) both}
+  html.wow .hero .cdc-seal{animation:wow-seal 1.4s cubic-bezier(.2,1.25,.3,1) calc(var(--wb) + .25s) both}
+  html.wow .hero .qr{animation-delay:calc(var(--wb) + .55s),calc(var(--wb) + 1.8s)}
+  html.wow .hero .keystone{animation:wow-rise 1.1s cubic-bezier(.2,.8,.2,1) calc(var(--wb) + .7s) both}
+  html.wow .alignsvg>path.arrow{stroke-dasharray:260;stroke-dashoffset:260;animation:wow-dash 1s ease forwards}
+  html.wow .alignsvg>path.arrow:nth-of-type(1){animation-delay:calc(var(--wb) + 1.35s)}
+  html.wow .alignsvg>path.arrow:nth-of-type(2){animation-delay:calc(var(--wb) + 1.65s)}
+  html.wow .alignsvg>path.arrow:nth-of-type(3){animation-delay:calc(var(--wb) + 1.95s)}
+  html.wow .alignsvg .arrowhead{animation:wow-fade-in .4s ease calc(var(--wb) + 2.3s) both}
+  html.wow .alignsvg>g{transform-box:fill-box;transform-origin:center;animation:wow-pop .7s cubic-bezier(.2,1.5,.3,1) both}
+  html.wow .alignsvg>g:nth-of-type(1){animation-delay:calc(var(--wb) + 1.05s)}
+  html.wow .alignsvg>g:nth-of-type(2){animation-delay:calc(var(--wb) + 1.2s)}
+  html.wow .alignsvg>g:nth-of-type(3){animation-delay:calc(var(--wb) + 1.35s)}
+  .alignsvg .center{animation:wow-breathe-o 3.2s ease-in-out infinite}
+  .alignsvg .node{transition:filter .35s}
+  .alignsvg g:hover .node{filter:drop-shadow(0 0 10px var(--wow-glow))}
+
+  /* ── Séparateurs de sections : filet d'or et losange central */
+  section{position:relative;border-top-color:transparent}
+  section::before{content:"";position:absolute;top:-1px;left:50%;width:min(980px,92%);height:1px;transform:translateX(-50%);
+    background:linear-gradient(90deg,transparent,var(--accent-edge) 20%,var(--accent-deco) 50%,var(--accent-edge) 80%,transparent)}
+  section::after{content:"";position:absolute;top:-4px;left:50%;width:7px;height:7px;transform:translateX(-50%) rotate(45deg);
+    background:var(--accent-deco);box-shadow:0 0 12px var(--wow-glow)}
+  footer{border-top-color:transparent}
+  footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--accent-deco),transparent)}
+
+  /* ── Titres de section */
+  .kicker::before{content:"";display:inline-block;vertical-align:middle;width:26px;height:1px;margin:0 12px 2px 0;
+    background:linear-gradient(90deg,transparent,var(--accent-deco))}
+  h2 em{background-image:linear-gradient(90deg,var(--accent-deco),var(--wow-hi));background-repeat:no-repeat;
+    background-size:0% 3px;background-position:0 94%;padding-bottom:2px;transition:background-size 1.2s cubic-bezier(.2,.8,.2,1) .35s}
+  h2.in em{background-size:100% 3px}
+
+  /* ── Apparitions au défilement : flou → net, avec léger zoom */
+  .reveal{filter:blur(8px);transform:translateY(26px) scale(.985);
+    transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1),filter .9s ease,
+      translate .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .45s}
+  .reveal.in{filter:none;transform:none}
+
+  /* ── Cartes : projecteur qui suit la souris, élévation dorée au survol */
+  .rule,.note,.brief,.pitfall,.recap,.check,.keystone{position:relative;isolation:isolate}
+  .rule::before,.note::before,.brief::before,.pitfall::before,.recap::before,.check::before,.keystone::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;pointer-events:none;opacity:0;transition:opacity .4s;
+    background:radial-gradient(340px circle at var(--sx,50%) var(--sy,50%),var(--wow-card-spot),transparent 65%)}
+  .rule:hover::before,.note:hover::before,.brief:hover::before,.pitfall:hover::before,.recap:hover::before,.check:hover::before,.keystone:hover::before{opacity:1}
+  .rule:hover,.note:hover,.brief:hover,.pitfall:hover{translate:0 -5px;border-color:var(--accent-edge);box-shadow:var(--wow-card-sh)}
+  .keystone{transition:box-shadow .45s,border-color .45s}
+  .rule .rn{display:inline-block;transition:color .3s,text-shadow .3s,letter-spacing .3s}
+  .rule:hover .rn{color:var(--accent-deco);text-shadow:0 0 14px var(--wow-glow);letter-spacing:.2em}
+  .brief::after{content:"";position:absolute;left:22px;right:22px;top:-1px;height:2px;border-radius:2px;
+    background:linear-gradient(90deg,transparent,var(--accent-deco),transparent);transform:scaleX(.25);opacity:.5;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s}
+  .brief:hover::after{transform:scaleX(1);opacity:1}
+
+  /* Cadres « signature » : bordure de lumière qui tourne */
+  
+.recap::after,
+.check::after,
+.keystone::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+
+    background: conic-gradient(
+        from var(--wow-ang),
+        transparent 0 70%,
+        var(--accent-deco) 84%,
+        var(--wow-hi) 88%,
+        transparent 96%
+    );
+
+    /* Compatibilité avec les navigateurs WebKit */
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+
+    /* Propriété standard */
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    mask-composite: exclude;
+
+    /* Animation de la bordure lumineuse */
+    animation: wow-ang 8s linear infinite;
+}
+
+
+  /* ── Frise des rubriques : la ligne et les numéros s'illuminent au fil de la lecture */
+  .steps>li.reveal{transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1),filter .9s ease,border-left-color 1.2s ease .3s}
+  .steps>li.in:not(:last-child){border-left-color:var(--accent-edge)}
+  .steps>li::before{transition:box-shadow .8s ease .2s,background .8s ease .2s,border-color .8s ease .2s}
+  .steps>li.in::before{background:radial-gradient(circle at 35% 30%,var(--wow-num-hi),var(--panel-2));
+    border-color:var(--accent-deco);box-shadow:0 0 0 5px var(--wow-ring),0 0 22px var(--wow-glow)}
+  .crit{transition:border-left-color .3s,background .3s}
+  .steps>li:hover .crit{border-left-color:var(--accent-deco)}
+  table.derou tbody tr{transition:background .3s}
+  table.derou tbody tr:hover{background:var(--info-bg)}
+
+  /* ── Grille d'auto-évaluation : coche qui « claque » */
+  .checkbox-custom{transition:background-color .25s,box-shadow .3s}
+  .checkbox-input:checked + .checkbox-custom{box-shadow:0 0 0 4px var(--wow-ring),0 0 16px var(--wow-glow);animation:wow-check .45s cubic-bezier(.2,1.6,.3,1)}
+  .check li span{transition:color .3s}
+  .check li:has(.checkbox-input:checked) span{color:var(--accent-text)}
+
+  /* ── Bouton retour en haut : or massif et onde lumineuse */
+  .scroll-to-top{background:linear-gradient(135deg,#F6DA88,#C9A24B 60%,#9A7B2E);box-shadow:0 8px 24px var(--wow-glow),0 0 0 1px rgba(0,0,0,.18)}
+  .scroll-to-top .scroll-icon{color:#16130D}
+  .scroll-to-top.visible::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--accent-deco);
+    pointer-events:none;animation:wow-ping 2.4s ease-out infinite}
+
+  /* ── Changement de thème : révélation circulaire depuis le bouton */
+  ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+  html.wow-vt body{transition:none}
+
+  @keyframes wow-drift1{to{transform:translate(-12vmax,10vmax) scale(1.15)}}
+  @keyframes wow-drift2{to{transform:translate(14vmax,-8vmax) scale(1.2)}}
+  @keyframes wow-drift3{to{transform:translate(-10vmax,-12vmax) scale(.9)}}
+  @keyframes wow-sweep{from{transform:translateX(-100%)}to{transform:translateX(340%)}}
+  @keyframes wow-shimmer{from{background-position:100% 0}to{background-position:-150% 0}}
+  @keyframes wow-ang{to{--wow-ang:360deg}}
+  @keyframes wow-breathe{0%,100%{opacity:.45;scale:.95}50%{opacity:1;scale:1.05}}
+  @keyframes wow-breathe-o{0%,100%{opacity:.55}50%{opacity:1}}
+  @keyframes wow-in-left{from{opacity:0;translate:-40px 0;filter:blur(6px)}to{opacity:1;translate:0 0;filter:none}}
+  @keyframes wow-in-up{from{opacity:0;translate:0 30px;filter:blur(6px)}to{opacity:1;translate:0 0;filter:none}}
+  @keyframes wow-clip{from{opacity:0;translate:0 34px;clip-path:polygon(-10% 130%,110% 130%,110% 130%,-10% 130%)}
+    to{opacity:1;translate:0 0;clip-path:polygon(-10% -30%,110% -30%,110% 130%,-10% 130%)}}
+  @keyframes wow-seal{from{opacity:0;scale:.35;rotate:-160deg;filter:blur(10px)}to{opacity:1;scale:1;rotate:0deg;filter:none}}
+  @keyframes wow-rise{from{opacity:0;translate:0 50px;scale:.96;filter:blur(8px)}to{opacity:1;translate:0 0;scale:1;filter:none}}
+  @keyframes wow-dash{to{stroke-dashoffset:0}}
+  @keyframes wow-fade-in{from{opacity:0}to{opacity:1}}
+  @keyframes wow-pop{from{opacity:0;scale:.6}to{opacity:1;scale:1}}
+  @keyframes wow-check{0%{scale:.6}60%{scale:1.25}100%{scale:1}}
+  @keyframes wow-ping{0%{opacity:.8;scale:1}100%{opacity:0;scale:1.5}}
+
+  @media (prefers-reduced-motion:reduce){
+    .wow-aurora,.wow-dust,.wow-spot{display:none}
+    .reveal{filter:none!important;transition:none!important}
+    .controlbar::after,.cdc-seal::before,.cdc-seal::after,.recap::after,.check::after,.keystone::after,
+    .scroll-to-top::before,.hero h1 .accent,.alignsvg .center,.checkbox-input:checked + .checkbox-custom{animation:none!important}
+    .rule:hover,.note:hover,.brief:hover,.pitfall:hover{translate:none}
+  }
+</style>
+<script>
+(function(){
+  "use strict";
+  var root=document.documentElement;
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine=window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  /* Intro : clic ou touche pour passer, retrait automatique */
+  var intro=document.getElementById("wow-intro");
+  if(intro&&root.classList.contains("wow")){
+    var skip=function(){root.classList.add("wow-skip");window.removeEventListener("keydown",skip);};
+    intro.addEventListener("click",skip);
+    window.addEventListener("keydown",skip);
+    setTimeout(function(){window.removeEventListener("keydown",skip);if(intro.parentNode)intro.parentNode.removeChild(intro);},3200);
+  }
+
+  /* Barre de progression de lecture */
+  var pg=document.getElementById("wow-progress"),pr=0;
+  function prog(){pr=0;var m=Math.max(1,root.scrollHeight-window.innerHeight);pg.style.transform="scaleX("+Math.min(1,(window.scrollY||root.scrollTop)/m)+")";}
+  if(pg){window.addEventListener("scroll",function(){if(!pr)pr=requestAnimationFrame(prog);},{passive:true});window.addEventListener("resize",prog);prog();}
+
+  /* Halo de fond + projecteur des cartes qui suivent la souris */
+  var SEL=".rule,.note,.brief,.pitfall,.recap,.check,.keystone";
+  if(!reduce&&fine){
+    var spot=document.getElementById("wow-spot"),mx=0,my=0,mt=null,mr=0;
+    window.addEventListener("pointermove",function(e){
+      mx=e.clientX;my=e.clientY;mt=e.target;
+      if(!mr)mr=requestAnimationFrame(function(){
+        mr=0;
+        if(spot){spot.style.setProperty("--cx",mx+"px");spot.style.setProperty("--cy",my+"px");spot.classList.add("on");}
+        var c=mt&&mt.closest?mt.closest(SEL):null;
+        if(c){var r=c.getBoundingClientRect();c.style.setProperty("--sx",(mx-r.left)+"px");c.style.setProperty("--sy",(my-r.top)+"px");}
+      });
+    },{passive:true});
+    document.addEventListener("pointerleave",function(){if(spot)spot.classList.remove("on");});
+  }
+
+  /* Apparition en cascade des cartes d'une même grille */
+  if(!reduce){
+    document.querySelectorAll(".rules,.briefs,.pitfalls,.note-grid").forEach(function(g){
+      [].forEach.call(g.children,function(el,i){
+        if(!el.classList.contains("reveal")||el.classList.contains("in"))return;
+        el.style.transitionDelay=(i%3)*110+"ms";
+        el.addEventListener("transitionend",function h(ev){if(ev.propertyName==="opacity"){el.style.transitionDelay="";el.removeEventListener("transitionend",h);}});
+      });
+    });
+  }
+
+  /* Changement de thème : révélation circulaire (navigateurs compatibles) */
+  var bl=document.getElementById("btn-light"),bd=document.getElementById("btn-dark");
+  if(document.startViewTransition&&!reduce&&bl&&bd){
+    [bl,bd].forEach(function(b){
+      b.addEventListener("click",function(e){
+        var t=b.getAttribute("data-theme-set");
+        if(root.getAttribute("data-theme")===t)return;
+        e.stopImmediatePropagation();
+        var r=b.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
+        var R=Math.hypot(Math.max(x,window.innerWidth-x),Math.max(y,window.innerHeight-y));
+        root.classList.add("wow-vt");
+        var vt=document.startViewTransition(function(){
+          root.setAttribute("data-theme",t);
+          var d=(t==="dark");
+          bd.setAttribute("aria-pressed",String(d));bl.setAttribute("aria-pressed",String(!d));
+          root.style.colorScheme=d?"dark":"light";
+          try{localStorage.setItem("cdc-theme",t);}catch(_){}
+        });
+        vt.ready.then(function(){
+          root.animate({clipPath:["circle(0px at "+x+"px "+y+"px)","circle("+R+"px at "+x+"px "+y+"px)"]},
+            {duration:750,easing:"cubic-bezier(.7,0,.3,1)",pseudoElement:"::view-transition-new(root)"});
+        }).catch(function(){});
+        vt.finished.then(function(){root.classList.remove("wow-vt");},function(){root.classList.remove("wow-vt");});
+      },true);
+    });
+  }
+
+  /* Poussière d'or flottante */
+  var cv=document.getElementById("wow-dust");
+  if(cv&&!reduce&&cv.getContext){
+    var cx=cv.getContext("2d"),W=0,H=0,P=[],col="242,206,107",run=true;
+    var mk=function(any){return{x:Math.random()*W,y:any?Math.random()*H:H+10,r:Math.random()*1.6+.4,
+      vy:-(Math.random()*.25+.05),vx:(Math.random()-.5)*.15,a:Math.random()*6.283,s:Math.random()*.02+.005};};
+    var readCol=function(){var v=getComputedStyle(root).getPropertyValue("--wow-dust").trim();if(v)col=v;};
+    var size=function(){
+      var dpr=Math.min(2,window.devicePixelRatio||1);W=window.innerWidth;H=window.innerHeight;
+      cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+"px";cv.style.height=H+"px";cx.setTransform(dpr,0,0,dpr,0,0);
+      var n=Math.min(70,Math.round(W*H/22000));while(P.length<n)P.push(mk(true));P.length=n;
+    };
+    var loop=function(){
+      if(!run)return;
+      cx.clearRect(0,0,W,H);
+      for(var i=0;i<P.length;i++){
+        var p=P[i];p.x+=p.vx;p.y+=p.vy;p.a+=p.s;
+        if(p.y<-10)P[i]=p=mk(false);
+        var o=.22+.38*Math.sin(p.a);if(o<=0)continue;
+        cx.beginPath();cx.fillStyle="rgba("+col+","+o.toFixed(3)+")";cx.arc(p.x,p.y,p.r,0,6.283);cx.fill();
+      }
+      requestAnimationFrame(loop);
+    };
+    readCol();size();
+    window.addEventListener("resize",size);
+    new MutationObserver(readCol).observe(root,{attributes:true,attributeFilter:["data-theme"]});
+    document.addEventListener("visibilitychange",function(){var was=run;run=!document.hidden;if(run&&!was)requestAnimationFrame(loop);});
+    requestAnimationFrame(loop);
+  }
+})();
+</script>
+<!-- ===== FIN AJOUT style époustouflant ===== -->
+
+<!-- ===== AJOUT : sons du bouton retour en haut ===== -->
+<script>
+(function(){
+  "use strict";
+  var btn=document.getElementById("scrollToTop");
+  if(!btn) return;
+
+  /* Moteur audio (créé au premier clic, comme l'exigent les navigateurs) */
+  var ac=null;
+  function ctx(){
+    if(!ac){var C=window.AudioContext||window.webkitAudioContext;if(!C)return null;ac=new C();}
+    if(ac.state==="suspended") ac.resume();
+    return ac;
+  }
+
+  /* Son 1 : envol au clic (glissando montant + souffle) */
+  function soundStart(){
+    var a=ctx(); if(!a) return; var t=a.currentTime;
+    var o=a.createOscillator(),g=a.createGain();
+    o.type="triangle";
+    o.frequency.setValueAtTime(260,t);
+    o.frequency.exponentialRampToValueAtTime(1040,t+.38);
+    g.gain.setValueAtTime(.0001,t);
+    g.gain.exponentialRampToValueAtTime(.22,t+.04);
+    g.gain.exponentialRampToValueAtTime(.0001,t+.45);
+    o.connect(g).connect(a.destination); o.start(t); o.stop(t+.5);
+    var len=Math.floor(a.sampleRate*.5),buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);
+    for(var k=0;k<len;k++) d[k]=(Math.random()*2-1)*(1-k/len);
+    var n=a.createBufferSource(),f=a.createBiquadFilter(),ng=a.createGain();
+    n.buffer=buf; f.type="bandpass"; f.Q.value=1.2;
+    f.frequency.setValueAtTime(500,t); f.frequency.exponentialRampToValueAtTime(4000,t+.45);
+    ng.gain.setValueAtTime(.0001,t); ng.gain.exponentialRampToValueAtTime(.12,t+.06); ng.gain.exponentialRampToValueAtTime(.0001,t+.5);
+    n.connect(f).connect(ng).connect(a.destination); n.start(t);
+  }
+
+  /* Son 2 : carillon doré à l'arrivée (accord do – sol – do aigu) */
+  function soundArrive(){
+    var a=ctx(); if(!a) return; var t=a.currentTime;
+    [[1046.5,0],[1568,.12],[2093,.24]].forEach(function(nt){
+      [1,2.76].forEach(function(h,j){
+        var o=a.createOscillator(),g=a.createGain();
+        o.type="sine"; o.frequency.value=nt[0]*h;
+        var s=t+nt[1],v=j?.04:.16;
+        g.gain.setValueAtTime(.0001,s);
+        g.gain.exponentialRampToValueAtTime(v,s+.015);
+        g.gain.exponentialRampToValueAtTime(.0001,s+1.3);
+        o.connect(g).connect(a.destination); o.start(s); o.stop(s+1.35);
+      });
+    });
+  }
+
+  /* Logique : son 1 au clic, son 2 uniquement quand le haut est réellement atteint */
+  var pending=false;
+  function y(){return window.scrollY||document.documentElement.scrollTop||0;}
+
+  btn.addEventListener("click",function(){
+    if(y()<1) return;            /* déjà en haut : aucun son */
+    soundStart();
+    pending=true;
+  });
+
+  function check(){
+    if(pending && y()<1){        /* tout en haut, jamais avant */
+      pending=false;
+      soundArrive();
+    }
+  }
+  window.addEventListener("scroll",check,{passive:true});
+  if("onscrollend" in window) window.addEventListener("scrollend",check,{passive:true});
+
+  /* Si l'utilisateur redescend pendant la remontée, on annule le carillon */
+  function cancel(){ if(pending && y()>=1) pending=false; }
+  window.addEventListener("wheel",function(e){ if(e.deltaY>0) cancel(); },{passive:true});
+  window.addEventListener("touchmove",cancel,{passive:true});
+  window.addEventListener("keydown",function(e){
+    if(["ArrowDown","PageDown","End"," "].indexOf(e.key)>-1) cancel();
+  });
+})();
+</script>
+<!-- ===== FIN AJOUT sons ===== -->
+
+<!-- ===== AJOUT : styles et comportement de la barre de navigation ===== -->
+<style>
+  /* Couleurs propres à la navigation, contrastées dans chaque thème */
+  :root,[data-theme="dark"]{--nav-ink:#ECEAE2;--nav-num:#F2CE6B;--nav-bg:#12161F;--nav-line:#3A4356;
+    --nav-hover:#1E2533;--nav-on-bg:#F2CE6B;--nav-on-ink:#0B0E13;}
+  [data-theme="light"]{--nav-ink:#1A1D24;--nav-num:#5B4611;--nav-bg:#FFFDF7;--nav-line:#C9BC9F;
+    --nav-hover:#F1EAD8;--nav-on-bg:#5B4611;--nav-on-ink:#FFFDF7;}
+
+  /* Les sections ne passent plus sous la barre collante */
+  #accueil,main>section{scroll-margin-top:calc(var(--cb-h,150px) + 10px)}
+
+  .secnav{border-top:1px solid var(--line)}
+  .secnav-in{max-width:980px;margin:0 auto;padding:8px 24px 10px}
+
+  .secnav-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+  .secnav-list a{display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;
+    border:1px solid var(--nav-line);border-radius:999px;background:var(--nav-bg);color:var(--nav-ink);
+    font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:0.95rem;font-weight:700;line-height:1.2;
+    text-decoration:none;overflow-wrap:anywhere;transition:background .2s,border-color .2s,color .2s}
+  .secnav-list a .n{font-family:"JetBrains Mono",monospace;font-size:0.78rem;font-weight:600;color:var(--nav-num);letter-spacing:.04em}
+  .secnav-list a:hover{background:var(--nav-hover);border-color:var(--accent-deco);text-decoration:underline;text-underline-offset:3px}
+  .secnav-list a[aria-current="location"]{background:var(--nav-on-bg);border-color:var(--nav-on-bg);color:var(--nav-on-ink)}
+  .secnav-list a[aria-current="location"] .n{color:var(--nav-on-ink)}
+  .secnav-list a:focus-visible{outline:3px solid var(--accent-text);outline-offset:2px}
+
+  /* Bouton « Sommaire » : visible seulement sur petit écran */
+  .secnav-toggle{display:none;width:100%;min-height:48px;align-items:center;gap:10px;padding:8px 14px;
+    border:2px solid var(--accent-deco);border-radius:12px;background:var(--nav-bg);color:var(--nav-ink);cursor:pointer;
+    font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:1rem;font-weight:700;text-align:left}
+  .secnav-toggle svg{width:22px;height:22px;flex:0 0 auto;color:var(--nav-num)}
+  .secnav-toggle svg path{transition:transform .25s,opacity .2s;transform-origin:12px 12px}
+  .secnav-toggle[aria-expanded="true"] .l1{transform:translateY(5px) rotate(45deg)}
+  .secnav-toggle[aria-expanded="true"] .l2{opacity:0}
+  .secnav-toggle[aria-expanded="true"] .l3{transform:translateY(-5px) rotate(-45deg)}
+  .secnav-current{margin-left:auto;font-weight:400;font-size:0.9rem;color:var(--muted);
+    min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .secnav-toggle:focus-visible{outline:3px solid var(--accent-text);outline-offset:2px}
+
+  @media (max-width:820px){
+    .secnav-toggle{display:flex}
+    .secnav-list{display:none;flex-direction:column;flex-wrap:nowrap;gap:6px;margin-top:8px;
+      max-height:min(62vh,520px);overflow-y:auto;overscroll-behavior:contain;padding:2px}
+    .secnav.open .secnav-list{display:flex}
+    .secnav-list a{border-radius:10px;padding:10px 14px;font-size:1rem}
+  }
+  @media (max-width:360px){
+    .controlbar .wrap{padding:10px 12px}
+    .secnav-in{padding:8px 12px 10px}
+    .ctrl-group .lbl{display:none}
+    .secnav-current{display:none}
+  }
+  @media (max-width:300px){
+    .ctrls,.ctrl-group{width:100%;justify-content:center}
+    button.ctrl{padding:6px 9px}
+    .secnav-list a{padding:10px 10px;gap:6px}
+  }
+  @media (prefers-reduced-motion:reduce){.secnav-toggle svg path,.secnav-list a{transition:none}}
+  @media print{.secnav{display:none}}
+</style>
+<script>
+(function(){
+  "use strict";
+  var nav=document.getElementById("secnav"),btn=document.getElementById("secnav-toggle"),
+      bar=document.querySelector(".controlbar"),cur=document.getElementById("secnav-current");
+  if(!nav||!btn||!bar) return;
+  var root=document.documentElement;
+  var links=[].slice.call(nav.querySelectorAll(".secnav-list a"));
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var small=window.matchMedia("(max-width:820px)");
+
+  /* Hauteur réelle de la barre collante, pour que le titre visé ne soit jamais masqué */
+  function setH(){root.style.setProperty("--cb-h",bar.offsetHeight+"px");}
+  setH();
+  window.addEventListener("resize",setH);
+  if("ResizeObserver" in window){new ResizeObserver(function(){if(!nav.classList.contains("open"))setH();}).observe(bar);}
+
+  /* Ouverture / fermeture du sommaire sur petit écran */
+  function setOpen(o){nav.classList.toggle("open",o);btn.setAttribute("aria-expanded",String(o));}
+  btn.addEventListener("click",function(){setOpen(!nav.classList.contains("open"));});
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"&&nav.classList.contains("open")){setOpen(false);btn.focus();}
+  });
+  document.addEventListener("click",function(e){
+    if(nav.classList.contains("open")&&!nav.contains(e.target))setOpen(false);
+  });
+  small.addEventListener&&small.addEventListener("change",function(){setOpen(false);});
+
+  /* Clic sur un lien : fermeture, défilement vers la section, focus pour les lecteurs d'écran */
+  links.forEach(function(a){
+    a.addEventListener("click",function(e){
+      var id=a.getAttribute("href").slice(1),t=document.getElementById(id);
+      if(!t) return;
+      e.preventDefault();
+      setOpen(false);setH();
+      t.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});
+      if(history.replaceState)history.replaceState(null,"","#"+id);
+      var h=t.querySelector("h1,h2")||t;
+      if(!h.hasAttribute("tabindex"))h.setAttribute("tabindex","-1");
+      h.focus({preventScroll:true});
+      mark(id);
+    });
+  });
+
+  /* Section en cours de lecture signalée dans la barre (aria-current) */
+  function mark(id){
+    links.forEach(function(a){
+      if(a.getAttribute("href")==="#"+id){a.setAttribute("aria-current","location");
+        if(cur)cur.textContent=a.textContent.replace(/^\d+/,"").trim();}
+      else a.removeAttribute("aria-current");
+    });
+  }
+  var targets=links.map(function(a){return document.getElementById(a.getAttribute("href").slice(1));}).filter(Boolean);
+  var tick=0;
+  function spy(){
+    tick=0;
+    var line=bar.offsetHeight+Math.min(160,window.innerHeight*0.25),act=targets[0];
+    targets.forEach(function(t){if(t.getBoundingClientRect().top<=line)act=t;});
+    if(window.innerHeight+(window.scrollY||root.scrollTop)>=root.scrollHeight-4)act=targets[targets.length-1];
+    if(act)mark(act.id);
+  }
+  window.addEventListener("scroll",function(){if(!tick)tick=requestAnimationFrame(spy);},{passive:true});
+  spy();
+
+  /* Arrivée directe avec une ancre dans l'adresse (ex. …/index.html#grille) */
+  if(location.hash){var t0=document.getElementById(location.hash.slice(1));
+    if(t0)setTimeout(function(){setH();t0.scrollIntoView({block:"start"});},60);}
+})();
+</script>
+<!-- ===== FIN AJOUT navigation ===== -->
+
+</body>
+</html>

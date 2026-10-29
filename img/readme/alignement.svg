@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-label="L'alignement pédagogique : objectifs, déroulé et évaluation se répondent">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C9A24B"/>
+    </marker>
+  </defs>
+  <rect width="900" height="420" rx="18" fill="#12161F" stroke="#2A3140" stroke-width="2"/>
+  <text x="450" y="46" text-anchor="middle" font-family="Consolas,'JetBrains Mono',monospace" font-size="15" letter-spacing="3" fill="#828C9A">LA RÈGLE QUI S'APPLIQUE À CHACUNE DES FICHES</text>
+
+  <path d="M330 118 Q450 88 570 118" fill="none" stroke="#8A6B24" stroke-width="3" marker-end="url(#ah)"/>
+  <path d="M650 170 Q690 260 560 318" fill="none" stroke="#8A6B24" stroke-width="3" marker-end="url(#ah)"/>
+  <path d="M340 330 Q220 260 250 170" fill="none" stroke="#8A6B24" stroke-width="3" marker-end="url(#ah)"/>
+
+  <g font-family="Georgia,'Playfair Display',serif" text-anchor="middle">
+    <rect x="130" y="80" width="200" height="86" rx="14" fill="#1B1710" stroke="#F2CE6B" stroke-width="2.5"/>
+    <text x="230" y="118" font-size="24" font-weight="700" fill="#F2CE6B">Objectifs</text>
+    <text x="230" y="146" font-size="15" fill="#AEB6C2" font-family="Arial,sans-serif">ce qu'il saura faire</text>
+
+    <rect x="570" y="80" width="200" height="86" rx="14" fill="#1B1710" stroke="#F2CE6B" stroke-width="2.5"/>
+    <text x="670" y="118" font-size="24" font-weight="700" fill="#F2CE6B">Déroulé</text>
+    <text x="670" y="146" font-size="15" fill="#AEB6C2" font-family="Arial,sans-serif">ce qu'il pratique</text>
+
+    <rect x="350" y="290" width="200" height="86" rx="14" fill="#1B1710" stroke="#F2CE6B" stroke-width="2.5"/>
+    <text x="450" y="328" font-size="24" font-weight="700" fill="#F2CE6B">Évaluation</text>
+    <text x="450" y="356" font-size="15" fill="#AEB6C2" font-family="Arial,sans-serif">ce que l'on vérifie</text>
+  </g>
+  <text x="450" y="226" text-anchor="middle" font-family="Consolas,'JetBrains Mono',monospace" font-size="17" letter-spacing="4" fill="#828C9A">COHÉRENCE</text>
+</svg>

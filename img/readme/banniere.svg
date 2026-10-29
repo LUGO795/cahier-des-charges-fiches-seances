@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" role="img" aria-label="Cahier des charges — Construire ses fiches de séance — Médiateur Numérique">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12161F"/><stop offset="1" stop-color="#0B0E13"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="82%" cy="0%" r="70%">
+      <stop offset="0" stop-color="#F2CE6B" stop-opacity=".18"/><stop offset="1" stop-color="#F2CE6B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6DA88"/><stop offset=".5" stop-color="#E3C15A"/><stop offset="1" stop-color="#9A7B2E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="400" fill="url(#bg)"/>
+  <rect width="1280" height="400" fill="url(#glow)"/>
+  <rect x="1" y="1" width="1278" height="398" rx="18" fill="none" stroke="#8A6B24" stroke-width="2"/>
+
+  <g font-family="'JetBrains Mono',Consolas,monospace" fill="#F2CE6B" font-size="17" letter-spacing="4">
+    <line x1="80" y1="96" x2="120" y2="96" stroke="#8A6B24" stroke-width="2"/>
+    <text x="134" y="102">MODE 83 · MÉDIATEUR NUMÉRIQUE · RNCP 40695</text>
+  </g>
+  <text x="80" y="190" font-family="'Playfair Display',Georgia,serif" font-weight="900" font-size="50" fill="#ECEAE2">Construire vos fiches de séance,</text>
+  <text x="80" y="262" font-family="'Playfair Display',Georgia,serif" font-weight="700" font-style="italic" font-size="54" fill="url(#gold)">le cahier des charges</text>
+  <text x="80" y="320" font-family="'Atkinson Hyperlegible',Arial,sans-serif" font-size="22" fill="#AEB6C2">Bloc d'identification + 12 rubriques · 9 règles d'or · grille d'auto-évaluation</text>
+
+  <!-- sceau -->
+  <g transform="translate(1080,200)">
+    <circle r="138" fill="#0F131B" stroke="url(#gold)" stroke-width="5"/>
+    <circle r="124" fill="none" stroke="#B08E3A" stroke-width="1.5" opacity=".7"/>
+    <circle r="88" fill="none" stroke="url(#gold)" stroke-width="3"/>
+    <g transform="rotate(-6)">
+      <rect x="-48" y="-62" width="96" height="124" rx="7" fill="#0C1017" stroke="url(#gold)" stroke-width="3"/>
+      <rect x="-48" y="-62" width="96" height="20" rx="7" fill="url(#gold)"/>
+      <g stroke="#E3C15A" stroke-width="4" stroke-linecap="round">
+        <line x1="-30" y1="-22" x2="32" y2="-22"/><line x1="-30" y1="0" x2="32" y2="0"/><line x1="-30" y1="22" x2="16" y2="22"/>
+      </g>
+      <path d="M-24 46 l10 10 l24 -28" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>

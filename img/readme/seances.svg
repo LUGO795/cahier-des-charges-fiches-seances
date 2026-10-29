@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" role="img" aria-label="Les trois séances : SMS d'arnaque, mots de passe, démarches en ligne">
+  <rect width="960" height="340" rx="18" fill="#0B0E13"/>
+  <g font-family="Arial,'Atkinson Hyperlegible',sans-serif">
+    <g transform="translate(24,24)">
+      <rect width="288" height="292" rx="14" fill="#12161F" stroke="#2A3140" stroke-width="2"/>
+      <rect x="22" y="0" width="244" height="3" fill="#F2CE6B"/>
+      <text x="24" y="44" font-family="Consolas,monospace" font-size="13" letter-spacing="2" fill="#F2CE6B">SÉANCE 1 · 1 H</text>
+      <text x="24" y="82" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#ECEAE2">Repérer les SMS</text>
+      <text x="24" y="108" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#ECEAE2">d'arnaque</text>
+      <text x="24" y="150" font-size="15" fill="#828C9A">PUBLIC</text>
+      <text x="24" y="172" font-size="16" fill="#AEB6C2">Seniors débutants (65–80 ans)</text>
+      <text x="24" y="210" font-size="15" fill="#828C9A">CŒUR</text>
+      <text x="24" y="232" font-size="16" fill="#AEB6C2">Trier vrais / faux SMS,</text>
+      <text x="24" y="254" font-size="16" fill="#AEB6C2">dégager les 3 réflexes</text>
+    </g>
+    <g transform="translate(336,24)">
+      <rect width="288" height="292" rx="14" fill="#12161F" stroke="#2A3140" stroke-width="2"/>
+      <rect x="22" y="0" width="244" height="3" fill="#F2CE6B"/>
+      <text x="24" y="44" font-family="Consolas,monospace" font-size="13" letter-spacing="2" fill="#F2CE6B">SÉANCE 2 · 1 H 30</text>
+      <text x="24" y="82" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#ECEAE2">Créer et protéger</text>
+      <text x="24" y="108" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#ECEAE2">ses mots de passe</text>
+      <text x="24" y="150" font-size="15" fill="#828C9A">PUBLIC</text>
+      <text x="24" y="172" font-size="16" fill="#AEB6C2">Adultes en insertion (25–55 ans)</text>
+      <text x="24" y="210" font-size="15" fill="#828C9A">CŒUR</text>
+      <text x="24" y="232" font-size="16" fill="#AEB6C2">Phrase de passe fictive,</text>
+      <text x="24" y="254" font-size="16" fill="#AEB6C2">2FA, coffre-fort</text>
+    </g>
+    <g transform="translate(648,24)">
+      <rect width="288" height="292" rx="14" fill="#12161F" stroke="#2A3140" stroke-width="2"/>
+      <rect x="22" y="0" width="244" height="3" fill="#F2CE6B"/>
+      <text x="24" y="44" font-family="Consolas,monospace" font-size="13" letter-spacing="2" fill="#F2CE6B">SÉANCE 3 · 1 H 30</text>
+      <text x="24" y="82" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#ECEAE2">Démarches en ligne</text>
+      <text x="24" y="108" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#ECEAE2">en sécurité</text>
+      <text x="24" y="150" font-size="15" fill="#828C9A">PUBLIC</text>
+      <text x="24" y="172" font-size="16" fill="#AEB6C2">Usagers France Services (30–70)</text>
+      <text x="24" y="210" font-size="15" fill="#828C9A">CŒUR</text>
+      <text x="24" y="232" font-size="16" fill="#AEB6C2">Reconnaître le .gouv.fr,</text>
+      <text x="24" y="254" font-size="16" fill="#AEB6C2">FranceConnect, se déconnecter</text>
+    </g>
+  </g>
+</svg>

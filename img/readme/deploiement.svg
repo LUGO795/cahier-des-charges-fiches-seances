@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220" role="img" aria-label="Mise en ligne en 4 étapes : créer le dépôt, envoyer les fichiers, activer Pages, partager le lien">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#C9A24B"/></marker>
+  </defs>
+  <rect width="960" height="220" rx="18" fill="#12161F" stroke="#2A3140" stroke-width="2"/>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <g transform="translate(120,110)"><circle r="44" fill="#1B1710" stroke="#F2CE6B" stroke-width="2.5"/><text y="9" font-family="Consolas,monospace" font-size="26" fill="#F2CE6B">1</text><text y="78" font-size="16" fill="#ECEAE2">Créer le dépôt</text></g>
+    <g transform="translate(360,110)"><circle r="44" fill="#1B1710" stroke="#F2CE6B" stroke-width="2.5"/><text y="9" font-family="Consolas,monospace" font-size="26" fill="#F2CE6B">2</text><text y="78" font-size="16" fill="#ECEAE2">Envoyer les fichiers</text></g>
+    <g transform="translate(600,110)"><circle r="44" fill="#1B1710" stroke="#F2CE6B" stroke-width="2.5"/><text y="9" font-family="Consolas,monospace" font-size="26" fill="#F2CE6B">3</text><text y="78" font-size="16" fill="#ECEAE2">Activer Pages</text></g>
+    <g transform="translate(840,110)"><circle r="44" fill="#F2CE6B" stroke="#F6DA88" stroke-width="2.5"/><path d="M-14 0 l9 10 l20 -22" fill="none" stroke="#0B0E13" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text y="78" font-size="16" fill="#ECEAE2">Partager le lien</text></g>
+  </g>
+  <g stroke="#8A6B24" stroke-width="2.5" marker-end="url(#a)">
+    <line x1="172" y1="110" x2="304" y2="110"/><line x1="412" y1="110" x2="544" y2="110"/><line x1="652" y1="110" x2="784" y2="110"/>
+  </g>
+</svg>
